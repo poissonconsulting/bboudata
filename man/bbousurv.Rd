@@ -11,14 +11,16 @@ A tibble
 \item{Year}{The year}
 \item{Month}{The month}
 \item{StartTotal}{The number of living caribou at the start of the month}
-\item{MortalitiesCertain}{The number of confirmed caribou mortalities in the month}
-\item{MortalitiesUncertain}{The number of unconfirmed caribou mortalities in the month}
+\item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+month}
+\item{MortalitiesUncertain}{The number of unconfirmed caribou mortalities in
+the month}
 }
 }
 \usage{
 bbousurv
 }
 \description{
-A dataset containing survival information for Boreal Caribou.
+A data set containing survival information for Boreal Caribou.
 }
 \keyword{datasets}
