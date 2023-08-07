@@ -3,7 +3,8 @@ test_that("column names of bbourecruit are correct", {
     c(
       "PopulationName", "Year", "Month", "Day", "Cows", "Bulls",
       "UnknownAdults", "Yearlings", "Calves"
-    ),      colnames(bbourecruit)
+    ),
+    colnames(bbourecruit)
   )
 })
 

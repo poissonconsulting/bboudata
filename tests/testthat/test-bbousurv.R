@@ -1,9 +1,9 @@
 test_that("column names of bbousurv are correct", {
   expect_identical(
-      c(
-        "PopulationName", "Year", "Month", "StartTotal", "MortalitiesCertain",
-        "MortalitiesUncertain"
-      ),
+    c(
+      "PopulationName", "Year", "Month", "StartTotal", "MortalitiesCertain",
+      "MortalitiesUncertain"
+    ),
     colnames(bbousurv)
   )
 })
