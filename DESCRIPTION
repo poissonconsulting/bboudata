@@ -1,0 +1,31 @@
+Package: bboudata
+Title: Data for bbou Project
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Troy", "Hegel", , "troy.hegel@gov.ab.ca", role = "aut"),
+    person("Dave", "Hervieux", , "dave.hervieux@gov.ab.ca", role = "aut"),
+    person("Barry", "Nobert", , "barry.nobert@gov.ab.ca", role = "aut"),
+    person("John", "Boulanger", , "boulange@ecological.bc.ca", role = c("cre", "aut"),
+           comment = c(ORCID = "0000-0001-8222-1445")),
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0002-7683-4592")),
+    person("Ayla", "Pearson", , "ayla@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0001-7388-1222"))
+  )
+Description: This package contains boreal caribou demographic data which can be
+    used as validation for the associated shiny-app and analysis. The
+    overall goal of the bbou packages is to develop a more standardized
+    and consistent method for the comparison of boreal caribou survival
+    rates, recruitment and population dynamics across Canada.
+License: Apache License (>= 2)
+Depends:
+    R (>= 3.4)
+Suggests: 
+    chk,
+    testthat (>= 3.0.0),
+    tibble
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
