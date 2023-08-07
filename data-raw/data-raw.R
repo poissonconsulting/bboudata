@@ -4,23 +4,23 @@
 ### TODO: Add in sample data
 bbourecruit <- tibble::tibble(
   PopulationName = c("A"),
-  Year = c(2023),
-  Month = c(1),
-  Day = c(1),
-  Cows = c(10),
-  Bulls = c(10),
-  UnknownAdults = c(0),
-  Yearlings = c(1),
-  Calves = c(1)
+  Year = c(2023L),
+  Month = c(1L),
+  Day = c(1L),
+  Cows = c(10L),
+  Bulls = c(10L),
+  UnknownAdults = c(0L),
+  Yearlings = c(1L),
+  Calves = c(1L)
 )
 
 bbousurv <- tibble::tibble(
   PopulationName = c("A"),
-  Year = c(2023),
-  Month = c(1),
-  StartTotal = c(10),
-  MortalitiesCertain = c(0),
-  MortalitiesUncertain = c(0)
+  Year = c(2023L),
+  Month = c(1L),
+  StartTotal = c(10L),
+  MortalitiesCertain = c(0L),
+  MortalitiesUncertain = c(0L)
 )
 
 usethis::use_data(bbourecruit, overwrite = TRUE)
