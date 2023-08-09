@@ -22,6 +22,9 @@ A tibble
 bbourecruit
 }
 \description{
-A dataset containing recruitment information for Boreal Caribou.
+The data contains recruitment information for Boreal Caribou.
+}
+\details{
+The data is released under the \href{https://open.alberta.ca/licence}{Open Government Licence - Alberta}
 }
 \keyword{datasets}

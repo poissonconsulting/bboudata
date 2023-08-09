@@ -21,6 +21,9 @@ the month}
 bbousurv
 }
 \description{
-A data set containing survival information for Boreal Caribou.
+The data contains survival information for Boreal Caribou.
+}
+\details{
+The data is released under the \href{https://open.alberta.ca/licence}{Open Government Licence - Alberta}
 }
 \keyword{datasets}

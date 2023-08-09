@@ -14,7 +14,10 @@
 
 #' Sample Boreal Caribou Recruitment Data
 #'
-#' A dataset containing recruitment information for Boreal Caribou.
+#' The data contains recruitment information for Boreal Caribou.
+#'
+#' The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
 #'
 #' @format A tibble
 #' \describe{

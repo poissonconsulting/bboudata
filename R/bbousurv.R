@@ -14,7 +14,10 @@
 
 #' Sample Boreal Caribou Survival Data
 #'
-#' A data set containing survival information for Boreal Caribou.
+#' The data contains survival information for Boreal Caribou.
+#'
+#' The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
 #'
 #' @format A tibble
 #' \describe{
