@@ -23,7 +23,7 @@ Other contributors:
   \item Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID}) [contributor]
   \item Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
   \item Alan Constant (\href{https://orcid.org/0000-0002-1652-4031}{ORCID}) [contributor]
-  \item Environment and Climate Change Canada [copyright holder]
+  \item Province of Alberta [copyright holder]
 }
 
 }
