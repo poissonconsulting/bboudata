@@ -13,7 +13,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-7388-1222")),
     person("Alan", "Constant", role = "ctb",
            comment = c(ORCID = "0000-0002-1652-4031")),
-    person("Environment and Climate Change Canada", role = "cph")
+    person("Province of Alberta", role = "cph")
   )
 Description: This package contains boreal caribou demographic data which can be
     used as validation for the associated shiny-app and analysis. The
