@@ -15,13 +15,13 @@
 path <- file.path("data-raw", "recruitment.xlsx")
 sheets <- readxl::excel_sheets(path)
 
-bbourecuit_a <- readxl::read_excel(path, sheets[1])
-bbourecuit_b <- readxl::read_excel(path, sheets[2])
-bbourecuit_c <- readxl::read_excel(path, sheets[3])
+bbourecruit_a <- readxl::read_excel(path, sheets[1])
+bbourecruit_b <- readxl::read_excel(path, sheets[2])
+bbourecruit_c <- readxl::read_excel(path, sheets[3])
 
-usethis::use_data(bbourecuit_a, overwrite = TRUE)
-usethis::use_data(bbourecuit_b, overwrite = TRUE)
-usethis::use_data(bbourecuit_c, overwrite = TRUE)
+usethis::use_data(bbourecruit_a, overwrite = TRUE)
+usethis::use_data(bbourecruit_b, overwrite = TRUE)
+usethis::use_data(bbourecruit_c, overwrite = TRUE)
 
 path <- file.path("data-raw", "survival.xlsx")
 sheets <- readxl::excel_sheets(path)
