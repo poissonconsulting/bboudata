@@ -9,7 +9,7 @@ output: github_document
 
 # bboudata
 
-`bboudata` provides survival and recruitment datasets for boreal caribou.
+`bboudata` provides sample survival and recruitment data for boreal caribou.
 
 ## Installation
 
@@ -23,7 +23,6 @@ devtools::install_github("poissonconsulting/bboudata")
 ## Demonstration
 
 ``` {r}
-library(bboudata)
 library(tibble) # to enhance readability
 
 bboudata::bbourecruit_a

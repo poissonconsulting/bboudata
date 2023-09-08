@@ -8,7 +8,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 # bboudata
 
-`bboudata` provides survival and recruitment datasets for boreal
+`bboudata` provides sample survival and recruitment data for boreal
 caribou.
 
 ## Installation
@@ -24,7 +24,6 @@ devtools::install_github("poissonconsulting/bboudata")
 ## Demonstration
 
 ``` r
-library(bboudata)
 library(tibble) # to enhance readability
 
 bboudata::bbourecruit_a
