@@ -2,10 +2,7 @@
 
 # bboudata 0.1.0
 
-- Merge pull request #3 from poissonconsulting/dev.
-
-  Adding licence information
-
+- Package is ready for 1st public release
 
 # bboudata 0.0.0.9000
 
