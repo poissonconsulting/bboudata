@@ -12,11 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#' Sample Boreal Caribou Recruitment Data
+#' Sample Data for Population A
 #'
-#' The data contains recruitment information for Boreal Caribou.
+#' The data contains recruitment information for a boreal caribou population B
+#' which spans 26 years.
 #'
-#' The data is released under the [Open Government Licence -
+#' @details The data is released under the [Open Government Licence -
 #' Alberta](https://open.alberta.ca/licence)
 #'
 #' @format A tibble
@@ -32,4 +33,50 @@
 #' \item{Calves}{The number of calves}
 #' }
 #'
-"bbourecruit"
+"bbourecruit_a"
+
+#' Sample Data for Population B
+#'
+#' The data contains recruitment information for a boreal caribou population B
+#' which spans 14 years.
+#'
+#' @details The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @format A tibble
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year}
+#' \item{Month}{The month}
+#' \item{Day}{The day}
+#' \item{Cows}{The number of cows}
+#' \item{Bulls}{The number of bulls}
+#' \item{UnknownAdults}{The number of adults which could not be sexed}
+#' \item{Yearlings}{The number of yearlings}
+#' \item{Calves}{The number of calves}
+#' }
+#'
+"bbourecruit_b"
+
+#' Sample Data for Population C
+#'
+#' The data contains recruitment information for a boreal caribou population C
+#' which spans 8 years.
+#'
+#' @details The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @format A tibble
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year}
+#' \item{Month}{The month}
+#' \item{Day}{The day}
+#' \item{Cows}{The number of cows}
+#' \item{Bulls}{The number of bulls}
+#' \item{UnknownAdults}{The number of adults which could not be sexed}
+#' \item{Yearlings}{The number of yearlings}
+#' \item{Calves}{The number of calves}
+#' }
+#'
+"bbourecruit_c"

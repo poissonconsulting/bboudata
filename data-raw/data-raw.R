@@ -15,9 +15,27 @@
 path <- file.path("data-raw", "recruitment.xlsx")
 sheets <- readxl::excel_sheets(path)
 
-bbourecruit_a <- readxl::read_excel(path, sheets[1])
-bbourecruit_b <- readxl::read_excel(path, sheets[2])
-bbourecruit_c <- readxl::read_excel(path, sheets[3])
+bbourecruit_a <- readxl::read_excel(path, sheets[1]) |>
+  dplyr::mutate(
+    dplyr::across(
+      c(Year, Month, Day, Cows, Bulls, UnknownAdults, Yearlings, Calves),
+      as.integer
+    )
+  )
+bbourecruit_b <- readxl::read_excel(path, sheets[2]) |>
+  dplyr::mutate(
+    dplyr::across(
+      c(Year, Month, Day, Cows, Bulls, UnknownAdults, Yearlings, Calves),
+      as.integer
+    )
+  )
+bbourecruit_c <- readxl::read_excel(path, sheets[3]) |>
+  dplyr::mutate(
+    dplyr::across(
+      c(Year, Month, Day, Cows, Bulls, UnknownAdults, Yearlings, Calves),
+      as.integer
+    )
+  )
 
 usethis::use_data(bbourecruit_a, overwrite = TRUE)
 usethis::use_data(bbourecruit_b, overwrite = TRUE)
@@ -26,9 +44,27 @@ usethis::use_data(bbourecruit_c, overwrite = TRUE)
 path <- file.path("data-raw", "survival.xlsx")
 sheets <- readxl::excel_sheets(path)
 
-bbousurv_a <- readxl::read_excel(path, sheets[1])
-bbousurv_b <- readxl::read_excel(path, sheets[2])
-bbousurv_c <- readxl::read_excel(path, sheets[3])
+bbousurv_a <- readxl::read_excel(path, sheets[1]) |>
+  dplyr::mutate(
+    dplyr::across(
+      c(Year, Month, StartTotal, MortalitiesCertain, MortalitiesUncertain),
+      as.integer
+    )
+  )
+bbousurv_b <- readxl::read_excel(path, sheets[2]) |>
+  dplyr::mutate(
+    dplyr::across(
+      c(Year, Month, StartTotal, MortalitiesCertain, MortalitiesUncertain),
+      as.integer
+    )
+  )
+bbousurv_c <- readxl::read_excel(path, sheets[3]) |>
+  dplyr::mutate(
+    dplyr::across(
+      c(Year, Month, StartTotal, MortalitiesCertain, MortalitiesUncertain),
+      as.integer
+    )
+  )
 
 usethis::use_data(bbousurv_a, overwrite = TRUE)
 usethis::use_data(bbousurv_b, overwrite = TRUE)
