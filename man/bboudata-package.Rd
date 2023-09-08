@@ -9,19 +9,19 @@
 This package contains boreal caribou demographic data which can be used as validation for the associated shiny-app and analysis. The overall goal of the bbou packages is to develop a more standardized and consistent method for the comparison of boreal caribou survival rates, recruitment and population dynamics across Canada.
 }
 \author{
-\strong{Maintainer}: John Boulanger \email{boulange@ecological.bc.ca} (\href{https://orcid.org/0000-0001-8222-1445}{ORCID})
+\strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
 
 Authors:
 \itemize{
   \item Troy Hegel \email{troy.hegel@gov.ab.ca}
   \item Dave Hervieux \email{dave.hervieux@gov.ab.ca}
   \item Barry Nobert \email{barry.nobert@gov.ab.ca}
+  \item John Boulanger \email{boulange@ecological.bc.ca} (\href{https://orcid.org/0000-0001-8222-1445}{ORCID})
 }
 
 Other contributors:
 \itemize{
   \item Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID}) [contributor]
-  \item Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
   \item Alan Constant (\href{https://orcid.org/0000-0002-1652-4031}{ORCID}) [contributor]
   \item Province of Alberta [copyright holder]
 }
