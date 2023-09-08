@@ -26,9 +26,9 @@ devtools::install_github("poissonconsulting/bboudata")
 library(bboudata)
 library(tibble) # to enhance readability
 
-bboudata::bbourecruit
+bboudata::bbourecruit_a
 
-bboudata::bbousurv
+bboudata::bbousurv_a
 ```
 
 ## Contribution
