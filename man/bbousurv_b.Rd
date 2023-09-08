@@ -5,23 +5,24 @@
 \alias{bbousurv_b}
 \title{Sample Data for Population B}
 \format{
-A tibble
+A tibble with columns:
 \describe{
 \item{PopulationName}{Name of the population}
-\item{Year}{The year}
-\item{Month}{The month}
-\item{StartTotal}{The number of living caribou at the start of the month}
+\item{Year}{The year the observation occurred}
+\item{Month}{The month the observation occurred}
+\item{StartTotal}{The total number of collared caribou at the start of the
+month}
 \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
 month}
-\item{MortalitiesUncertain}{The number of unconfirmed caribou mortalities in
-the month}
+\item{MortalitiesUncertain}{The total number of mortalities that were not
+confirmed in that month}
 }
 }
 \usage{
 bbousurv_b
 }
 \description{
-The data contains survival information for a boreal caribou population B
+The data contains survival information for boreal caribou population B
 which spans 17 years.
 }
 \details{

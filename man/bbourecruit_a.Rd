@@ -5,24 +5,25 @@
 \alias{bbourecruit_a}
 \title{Sample Data for Population A}
 \format{
-A tibble
+A tibble with columns:
 \describe{
 \item{PopulationName}{Name of the population}
-\item{Year}{The year}
-\item{Month}{The month}
-\item{Day}{The day}
-\item{Cows}{The number of cows}
-\item{Bulls}{The number of bulls}
-\item{UnknownAdults}{The number of adults which could not be sexed}
-\item{Yearlings}{The number of yearlings}
-\item{Calves}{The number of calves}
+\item{Year}{The year the observation occurred}
+\item{Month}{The month the observation occurred}
+\item{Day}{The day the observation occurred}
+\item{Cows}{The number of cows counted in the group}
+\item{Bulls}{The number of bulls counted in the group}
+\item{UnknownAdults}{The number of adults which could not be sexed in the
+group}
+\item{Yearlings}{The number of yearlings counted in the group}
+\item{Calves}{The number of calves counted in the group}
 }
 }
 \usage{
 bbourecruit_a
 }
 \description{
-The data contains recruitment information for a boreal caribou population B
+The data contains recruitment information for boreal caribou population B
 which spans 26 years.
 }
 \details{
