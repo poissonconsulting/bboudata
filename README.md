@@ -54,9 +54,6 @@ bboudata::bbousurv_a
 Please report any
 [issues](https://github.com/poissonconsulting/bboudata/issues).
 
-[Pull requests](https://github.com/poissonconsulting/bboudata/pulls) are
-always welcome.
-
 ## Code of Conduct
 
 Please note that the bboudata project is released with a [Contributor
