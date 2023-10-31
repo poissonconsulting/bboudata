@@ -116,3 +116,42 @@ test_that("confirming no NAs in bbourecruit_c data", {
   expect_true(chk::vld_not_any_na(bbourecruit_c$Yearlings))
   expect_true(chk::vld_not_any_na(bbourecruit_c$Calves))
 })
+
+test_that("dates are all valid dates", {
+  expect_true(
+    all(
+      !is.na(
+        as.Date(
+          paste0(
+            bbourecruit_a$Year, "-", bbourecruit_a$Month, "-", bbourecruit_a$Day
+          ),
+          "%Y-%m-%d"
+        )
+      )
+    )
+  )
+  expect_true(
+    all(
+      !is.na(
+        as.Date(
+          paste0(
+            bbourecruit_b$Year, "-", bbourecruit_b$Month, "-", bbourecruit_b$Day
+          ),
+          "%Y-%m-%d"
+        )
+      )
+    )
+  )
+  expect_true(
+    all(
+      !is.na(
+        as.Date(
+          paste0(
+            bbourecruit_c$Year, "-", bbourecruit_c$Month, "-", bbourecruit_c$Day
+          ),
+          "%Y-%m-%d"
+        )
+      )
+    )
+  )
+})
