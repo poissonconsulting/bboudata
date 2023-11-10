@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# bboudata 0.1.0.9000
+
+- Date error correction in bbourecruit_a
+
 # bboudata 0.1.0
 
 - Package is ready for 1st public release
