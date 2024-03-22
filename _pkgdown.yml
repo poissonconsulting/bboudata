@@ -1,0 +1,17 @@
+destination: docs
+
+reference:
+- title: Recruitment
+  contents:
+  - '`bbourecruit_a`'
+  - '`bbourecruit_b`'
+  - '`bbourecruit_c`'
+- title: Survival
+  contents:
+  - '`bbousurv_a`'
+  - '`bbousurv_b`'
+  - '`bbousurv_c`'
+- title: Check Data
+  contents:
+  - '`bbd_chk_data_recruitment`'
+  - '`bbd_chk_data_survival`'
