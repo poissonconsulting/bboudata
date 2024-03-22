@@ -26,10 +26,11 @@
   chk::abort_chk(
     paste0(
       "Sum of ",
-      chk::cc(colsum, ' and '),
+      chk::cc(colsum, " and "),
       "must not be greater than '",
       coltot,
-      "'.")
+      "'."
+    )
   )
 }
 
