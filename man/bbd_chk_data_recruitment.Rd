@@ -4,7 +4,7 @@
 \alias{bbd_chk_data_recruitment}
 \title{Check recruitment data structure}
 \format{
-A tibble with columns:
+The data must follow the requirements:
 \describe{
 \item{PopulationName}{Name of the herd or population}
 \item{Year}{The calendar year the observation occurred. Must be a positive
@@ -38,8 +38,15 @@ bbd_chk_data_recruitment(data, x_name = deparse(substitute(data)))
 An invisible data frame.
 }
 \description{
-Check recruitment data structure
+The data must follow all requirements to not error. This format is required
+for usage of the bbou suite of tools.
 }
 \examples{
 bbd_chk_data_recruitment(bbourecruit_a)
+bbd_chk_data_recruitment(bbourecruit_b)
+bbd_chk_data_recruitment(bbourecruit_c)
+# this example will error as it doesn't follow the requirements
+x <- bbourecruit_a
+x[1, 4] <- 32L
+try(bbd_chk_data_recruitment(x))
 }

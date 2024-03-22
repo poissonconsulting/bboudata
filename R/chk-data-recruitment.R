@@ -14,7 +14,10 @@
 
 #' Check recruitment data structure
 #'
-#' @format A tibble with columns:
+#' The data must follow all requirements to not error. This format is required
+#' for usage of the bbou suite of tools.
+#'
+#' @format The data must follow the requirements:
 #' \describe{
 #' \item{PopulationName}{Name of the herd or population}
 #' \item{Year}{The calendar year the observation occurred. Must be a positive
@@ -44,6 +47,13 @@
 #'
 #' @examples
 #' bbd_chk_data_recruitment(bbourecruit_a)
+#' bbd_chk_data_recruitment(bbourecruit_b)
+#' bbd_chk_data_recruitment(bbourecruit_c)
+
+#' # this example will error as it doesn't follow the requirements
+#' x <- bbourecruit_a
+#' x[1, 4] <- 32L
+#' try(bbd_chk_data_recruitment(x))
 bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data))) {
   nms <- c(
     "PopulationName", "Year", "Month", "Day", "Cows",

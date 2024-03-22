@@ -4,7 +4,7 @@
 \alias{bbd_chk_data_survival}
 \title{Check survival data structure}
 \format{
-A tibble with columns:
+The data must follow the requirements:
 \describe{
 \item{PopulationName}{Name of the herd or population}
 \item{Year}{The calendar year the observation occurred. Must be a positive
@@ -31,8 +31,16 @@ bbd_chk_data_survival(data, x_name = deparse(substitute(data)))
 An invisible data frame.
 }
 \description{
-Check survival data structure
+The data must follow all requirements to not error. This format is required
+for usage of the bbou suite of tools.
 }
 \examples{
 bbd_chk_data_survival(bbousurv_a)
+bbd_chk_data_survival(bbousurv_b)
+bbd_chk_data_survival(bbousurv_c)
+
+# this example will error as it doesn't follow the requirements
+x <- bbousurv_c
+x[1, 3] <- 14L
+try(bbd_chk_data_survival(x))
 }
