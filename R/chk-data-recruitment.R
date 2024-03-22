@@ -14,6 +14,28 @@
 
 #' Check recruitment data structure
 #'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the herd or population}
+#' \item{Year}{The calendar year the observation occurred. Must be a positive
+#' integer.}
+#' \item{Month}{The calendar month the observation occurred. Must be an integer
+#' between 1 and 12.}
+#' \item{Day}{The day the observation occurred. Must be an integer between 1 and
+#' 31.}
+#' \item{Cows}{The total number of cows counted in each group in a survey/year.
+#' Must be a positive integer.}
+#' \item{Bulls}{The total number of bulls counted in each group in a
+#' survey/year. Must be a positive integer}
+#' \item{UnknownAdults}{The total number of adults counted that the sex could
+#' not be identified in each group in a survey/year. Must be a positive
+#' integer.}
+#' \item{Yearlings}{The total number of yearlings that did not have the sex
+#' identified in each group in a survey/year. Must be a positive integer. }
+#' \item{Calves}{The total number of calves counted in each group in a
+#' survey/year. Must be a positive integer.}
+#' }
+#'
 #' @param data A data frame.
 #' @param x_name Name of data frame.
 #'

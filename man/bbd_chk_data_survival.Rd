@@ -3,6 +3,22 @@
 \name{bbd_chk_data_survival}
 \alias{bbd_chk_data_survival}
 \title{Check survival data structure}
+\format{
+A tibble with columns:
+\describe{
+\item{PopulationName}{Name of the herd or population}
+\item{Year}{The calendar year the observation occurred. Must be a positive
+integer.}
+\item{Month}{The calendar month the observation occurred. Must be an integer
+between 1 and 12.}
+\item{StartTotal}{The total number of collared caribou at the start of the
+month. Must be a positive integer.}
+\item{MortalitiesCertain}{The total number of confirmed mortalities in that
+month. Must be a positive integer.}
+\item{MortalitiesUncertain}{The total number of mortalities that were not
+confirmed in that month. Must be a positive integer.}
+}
+}
 \usage{
 bbd_chk_data_survival(data, x_name = deparse(substitute(data)))
 }
