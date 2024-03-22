@@ -44,19 +44,3 @@
 xname <- function(x, col) {
   paste("Column", col, "of", x)
 }
-
-.chk_date <- function(year, month, day) {
-  chars <- paste(year, month, day, sep = "-")
-  dates <- as.Date(chars)
-  na_dates <- chars[is.na(dates)]
-  if (!length(na_dates)) {
-    return(invisible())
-  }
-  chk::abort_chk(
-    paste(
-      "Dates",
-      chk::cc(na_dates, ' and '),
-      "are invalid."
-    )
-  )
-}

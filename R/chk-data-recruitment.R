@@ -68,8 +68,6 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data))) {
   chk::chk_not_any_na(data$Month, x_name = "Month")
   chk::chk_not_any_na(data$Day, x_name = "Day")
 
-  .chk_date(data$Year, data$Month, data$Day)
-
   chk::chk_whole_numeric(data$Cows, x_name = xname(x_name, "Cows"))
   chk::chk_gte(data$Cows, 0, x_name = xname(x_name, "Cows"))
 

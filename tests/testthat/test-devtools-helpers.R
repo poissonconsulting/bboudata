@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-release_questions <- function() {
-  message(
-    "Have you confirmed Apache 2.0 license at the top of all code files?"
-  )
-}
+test_that("check message", {
+  expect_message(release_questions())
+})

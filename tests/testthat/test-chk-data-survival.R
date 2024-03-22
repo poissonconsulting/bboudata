@@ -91,3 +91,21 @@ test_that("error if missing values in survival data", {
     regexp = "MortalitiesUncertain must not have any missing values\\."
   )
 })
+
+test_that("error multiple pops", {
+  x <- bboudata::bbousurv_a
+  x[1, 1] <- "B"
+  expect_error(
+    bbd_chk_data_survival(x),
+    regexp = "'PopulationName' can only contain one unique value."
+  )
+})
+
+test_that("error StartTotal doesn't add up", {
+  x <- bboudata::bbousurv_a
+  x[1, 5] <- 3
+  expect_error(
+    bbd_chk_data_survival(x),
+    regexp = "Sum of 'MortalitiesCertain' and 'MortalitiesUncertain'must not be greater than 'StartTotal'."
+  )
+})
