@@ -4,6 +4,8 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/poissonconsulting/bboudata/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/bboudata/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/bboudata/branch/main/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/bboudata?branch=main)
 <!-- badges: end -->
 
 # bboudata
@@ -48,6 +50,16 @@ bboudata::bbousurv_a
 #> 5 A               1986     5          8                  0                    0
 #> # ℹ 359 more rows
 ```
+
+## bbou Suite
+
+`bboudata` is part of the bbou suite of tools. Other packages in this
+suite include:
+
+- [bboutools](https://github.com/poissonconsulting/bboutools)
+- [bbouretro](https://github.com/poissonconsulting/bbouretro)
+- [bboushiny](https://github.com/poissonconsulting/bboushiny)
+- [bbousims](https://github.com/poissonconsulting/bbousims)
 
 ## Contribution
 

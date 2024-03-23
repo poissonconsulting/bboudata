@@ -41,6 +41,16 @@ bboudata::bbourecruit_a
 bboudata::bbousurv_a
 ```
 
+## bbou Suite
+
+`bboudata` is part of the bbou suite of tools. 
+Other packages in this suite include:
+
+- [bboutools](https://github.com/poissonconsulting/bboutools)
+- [bbouretro](https://github.com/poissonconsulting/bbouretro)
+- [bboushiny](https://github.com/poissonconsulting/bboushiny)
+- [bbousims](https://github.com/poissonconsulting/bbousims)
+
 ## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/bboudata/issues).
