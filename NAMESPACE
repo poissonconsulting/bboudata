@@ -2,3 +2,4 @@
 
 export(bbd_chk_data_recruitment)
 export(bbd_chk_data_survival)
+import(tibble)

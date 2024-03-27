@@ -12,6 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+test_that("bbousurv snapshots", {
+  expect_snapshot({
+    print(bbourecruit_a, width = 120, n = 1200)
+    print(bbourecruit_b, width = 120, n = 1000)
+    print(bbourecruit_c, width = 120, n = 1000)
+  })
+})
+
 test_that("column names of bbourecruit_a are correct", {
   expect_identical(
     c(
