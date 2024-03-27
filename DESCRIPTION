@@ -25,10 +25,11 @@ Description: This package contains boreal caribou demographic data which can be
 License: Apache License (>= 2)
 Depends:
     R (>= 3.4)
-Suggests: 
+Imports:
     chk,
-    testthat (>= 3.0.0),
     tibble
+Suggests: 
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true

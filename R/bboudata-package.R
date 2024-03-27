@@ -16,5 +16,6 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @import tibble
 ## usethis namespace: end
 NULL
