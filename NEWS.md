@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# bboudata 0.2.0.9000
+
+- Internal updates and improvements. 
+
 # bboudata 0.2.0
 
 - Adding check data functions which error if data is not formatted as required.
