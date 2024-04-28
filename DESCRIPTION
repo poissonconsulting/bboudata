@@ -29,7 +29,10 @@ Imports:
     chk,
     tibble
 Suggests: 
+    bbousims,
     testthat (>= 3.0.0)
+Remotes:
+    poissonconsulting/bbousims
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
