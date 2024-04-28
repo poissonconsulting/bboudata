@@ -83,3 +83,96 @@
 #' }
 #'
 "bbourecruit_c"
+
+#' Simulated Data for Scenario 1
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a stable population spanning 20 years with annual variation on
+#' female adult survival and female calf survival.
+#' Coverage is low, with 20% of groups observed and 10 collars.
+#'
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_sim1"
+
+#' Simulated Data for Scenario 2
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a stable population spanning 20 years with annual variation on
+#' female adult survival and female calf survival.
+#' Coverage is high, with 70% of groups observed and 40 collars.
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_sim2"
+
+#' Simulated Data for Scenario 3
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a population spanning 20 years with negative trend on female adult survival
+#' and additional annual variation on female adult survival and female calf survival.
+#' Coverage is medium, with 50% of groups observed and 25 collars.
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_sim3"
+
+#' Simulated Data for Scenario 4
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a stable population spanning 20 years with small population size
+#' (50 initial adult females) and annual variation on female adult survival and female calf survival.
+#' Coverage is medium, with 40% of groups observed and 20 collars.
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_sim4"
