@@ -106,3 +106,12 @@ test_that("confirming no NAs in bbousurv_c data", {
   expect_true(chk::vld_not_any_na(bbousurv_c$MortalitiesCertain))
   expect_true(chk::vld_not_any_na(bbousurv_c$MortalitiesUncertain))
 })
+
+test_that("bbousurv sim snapshots", {
+  expect_snapshot({
+    print(bbousurv_sim1, width = 120, n = 1200)
+    print(bbousurv_sim2, width = 120, n = 1200)
+    print(bbousurv_sim3, width = 120, n = 1200)
+    print(bbousurv_sim4, width = 120, n = 1200)
+  })
+})
