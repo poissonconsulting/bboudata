@@ -6,11 +6,19 @@ reference:
   - '`bbourecruit_a`'
   - '`bbourecruit_b`'
   - '`bbourecruit_c`'
+  -'`bbourecruit_sim1`'
+  -'`bbourecruit_sim2`'
+  -'`bbourecruit_sim3`'
+  -'`bbourecruit_sim4`'
 - title: Survival
   contents:
   - '`bbousurv_a`'
   - '`bbousurv_b`'
   - '`bbousurv_c`'
+  - '`bbousurv_sim1`'
+  - '`bbousurv_sim2`'
+  - '`bbousurv_sim3`'
+  - '`bbousurv_sim4`'
 - title: Check Data
   contents:
   - '`bbd_chk_data_recruitment`'
