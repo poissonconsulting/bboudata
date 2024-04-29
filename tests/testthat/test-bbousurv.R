@@ -17,7 +17,7 @@ test_that("bbousurv snapshots", {
     print(bbousurv_a, width = 120, n = 1200)
     print(bbousurv_b, width = 120, n = 1000)
     print(bbousurv_c, width = 120, n = 1000)
-    })
+  })
 })
 
 test_that("column names of bbousurv_a are correct", {
@@ -105,4 +105,13 @@ test_that("confirming no NAs in bbousurv_c data", {
   expect_true(chk::vld_not_any_na(bbousurv_c$StartTotal))
   expect_true(chk::vld_not_any_na(bbousurv_c$MortalitiesCertain))
   expect_true(chk::vld_not_any_na(bbousurv_c$MortalitiesUncertain))
+})
+
+test_that("bbousurv sim snapshots", {
+  expect_snapshot({
+    print(bbousurv_sim1, width = 120, n = 1200)
+    print(bbousurv_sim2, width = 120, n = 1200)
+    print(bbousurv_sim3, width = 120, n = 1200)
+    print(bbousurv_sim4, width = 120, n = 1200)
+  })
 })

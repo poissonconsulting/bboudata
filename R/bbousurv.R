@@ -83,3 +83,92 @@
 #' }
 #'
 "bbousurv_c"
+
+#' Simulated Data for Scenario 1
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a stable population spanning 20 years with annual variation on
+#' female adult survival and female calf survival.
+#' Coverage is low, with 20% of groups observed and 10 collars.
+#'
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{StartTotal}{The total number of collared caribou at the start of the
+#' month}
+#' \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+#' month}
+#' \item{MortalitiesUncertain}{The total number of mortalities that were not
+#' confirmed in that month}
+#' }
+#'
+"bbousurv_sim1"
+
+#' Simulated Data for Scenario 2
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a stable population spanning 20 years with annual variation on
+#' female adult survival and female calf survival.
+#' Coverage is high, with 70% of groups observed and 40 collars.
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{StartTotal}{The total number of collared caribou at the start of the
+#' month}
+#' \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+#' month}
+#' \item{MortalitiesUncertain}{The total number of mortalities that were not
+#' confirmed in that month}
+#' }
+#'
+"bbousurv_sim2"
+
+#' Simulated Data for Scenario 3
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a population spanning 20 years with negative trend on female adult survival
+#' and additional annual variation on female adult survival and female calf survival.
+#' Coverage is medium, with 50% of groups observed and 25 collars.
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{StartTotal}{The total number of collared caribou at the start of the
+#' month}
+#' \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+#' month}
+#' \item{MortalitiesUncertain}{The total number of mortalities that were not
+#' confirmed in that month}
+#' }
+#'
+"bbousurv_sim3"
+
+#' Simulated Data for Scenario 4
+#'
+#' Data are simulated with `bbousims` package.
+#' This is a stable population spanning 20 years with small population size
+#' (50 initial adult females) and annual variation on female adult survival and female calf survival.
+#' Coverage is medium, with 40% of groups observed and 20 collars.
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{StartTotal}{The total number of collared caribou at the start of the
+#' month}
+#' \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+#' month}
+#' \item{MortalitiesUncertain}{The total number of mortalities that were not
+#' confirmed in that month}
+#' }
+#'
+"bbousurv_sim4"

@@ -163,3 +163,12 @@ test_that("dates are all valid dates", {
     )
   )
 })
+
+test_that("bbousurv sim snapshots", {
+  expect_snapshot({
+    print(bbourecruit_sim1, width = 120, n = 1200)
+    print(bbourecruit_sim2, width = 120, n = 1000)
+    print(bbourecruit_sim3, width = 120, n = 1000)
+    print(bbourecruit_sim4, width = 120, n = 1000)
+  })
+})
