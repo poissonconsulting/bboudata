@@ -28,9 +28,6 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>/pull_request_template.html</loc>
-  </url>
-  <url>
     <loc>/reference/bbd_chk_data_recruitment.html</loc>
   </url>
   <url>
@@ -49,6 +46,18 @@
     <loc>/reference/bbourecruit_c.html</loc>
   </url>
   <url>
+    <loc>/reference/bbourecruit_sim1.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bbourecruit_sim2.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bbourecruit_sim3.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bbourecruit_sim4.html</loc>
+  </url>
+  <url>
     <loc>/reference/bbousurv_a.html</loc>
   </url>
   <url>
@@ -56,6 +65,18 @@
   </url>
   <url>
     <loc>/reference/bbousurv_c.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bbousurv_sim1.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bbousurv_sim2.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bbousurv_sim3.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bbousurv_sim4.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
