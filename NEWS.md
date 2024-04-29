@@ -1,5 +1,19 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# bboudata 0.3.0
+
+- Add 4 simulated data sets
+  - Recruitment
+    - `bbourecruit_sim1`
+    - `bbourecruit_sim2`
+    - `bbourecruit_sim3`
+    - `bbourecruit_sim4`
+  - Survival
+    - `bbousurv_sim1`
+    - `bbousurv_sim2`
+    - `bbousurv_sim3`
+    - `bbousurv_sim4`
+
 # bboudata 0.2.0.9000
 
 - Internal updates and improvements. 
