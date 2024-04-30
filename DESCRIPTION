@@ -24,7 +24,8 @@ Description: This package contains boreal caribou demographic data which
     caribou survival rates, recruitment and population dynamics across
     Canada.
 License: Apache License (>= 2)
-URL: https://poissonconsulting.github.io/bboudata/, https://github.com/poissonconsulting/bboudata
+URL: https://poissonconsulting.github.io/bboudata/,
+    https://github.com/poissonconsulting/bboudata
 BugReports: https://github.com/poissonconsulting/bboudata/issues
 Depends:
     R (>= 3.4)
