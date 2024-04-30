@@ -23,7 +23,7 @@ bbousurv_a
 }
 \description{
 The data contains survival information for boreal caribou population A
-which spans 30 years.
+which spans 31 years.
 }
 \details{
 The data is released under the \href{https://open.alberta.ca/licence}{Open Government Licence - Alberta}

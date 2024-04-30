@@ -15,7 +15,7 @@
 #' Sample Data for Population A
 #'
 #' The data contains survival information for boreal caribou population A
-#' which spans 30 years.
+#' which spans 31 years.
 #'
 #' @details
 #' The data is released under the [Open Government Licence -
@@ -39,7 +39,7 @@
 #' Sample Data for Population B
 #'
 #' The data contains survival information for boreal caribou population B
-#' which spans 17 years.
+#' which spans 18 years.
 #'
 #' @details
 #' The data is released under the [Open Government Licence -
@@ -63,7 +63,7 @@
 #' Sample Data for Population C
 #'
 #' The data contains survival information for boreal caribou population C
-#' which spans 10 years.
+#' which spans 11 years.
 #'
 #' @details
 #' The data is released under the [Open Government Licence -

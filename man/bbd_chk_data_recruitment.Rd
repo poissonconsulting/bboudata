@@ -30,12 +30,12 @@ survey/year. Must be a positive integer.}
 bbd_chk_data_recruitment(data, x_name = deparse(substitute(data)))
 }
 \arguments{
-\item{data}{A data frame.}
+\item{data}{The data frame check.}
 
 \item{x_name}{Name of data frame.}
 }
 \value{
-An invisible data frame.
+An invisible copy of the original data frame.
 }
 \description{
 The data must follow all requirements to not error. This format is required

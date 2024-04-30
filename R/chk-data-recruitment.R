@@ -39,10 +39,10 @@
 #' survey/year. Must be a positive integer.}
 #' }
 #'
-#' @param data A data frame.
+#' @param data The data frame check.
 #' @param x_name Name of data frame.
 #'
-#' @return An invisible data frame.
+#' @return An invisible copy of the original data frame.
 #' @export
 #'
 #' @examples
