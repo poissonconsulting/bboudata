@@ -24,7 +24,7 @@ bbourecruit_b
 }
 \description{
 The data contains recruitment information for boreal caribou population B
-which spans 14 years.
+which spans 15 years.
 }
 \details{
 The data is released under the \href{https://open.alberta.ca/licence}{Open Government Licence - Alberta}

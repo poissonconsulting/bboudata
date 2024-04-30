@@ -15,7 +15,7 @@
 #' Sample Data for Population A
 #'
 #' The data contains recruitment information for boreal caribou population B
-#' which spans 26 years.
+#' which spans 27 years.
 #'
 #' @details The data is released under the [Open Government Licence -
 #' Alberta](https://open.alberta.ca/licence)
@@ -39,7 +39,7 @@
 #' Sample Data for Population B
 #'
 #' The data contains recruitment information for boreal caribou population B
-#' which spans 14 years.
+#' which spans 15 years.
 #'
 #' @details The data is released under the [Open Government Licence -
 #' Alberta](https://open.alberta.ca/licence)
@@ -63,7 +63,7 @@
 #' Sample Data for Population C
 #'
 #' The data contains recruitment information for boreal caribou population C
-#' which spans 8 years.
+#' which spans 9 years.
 #'
 #' @details The data is released under the [Open Government Licence -
 #' Alberta](https://open.alberta.ca/licence)
