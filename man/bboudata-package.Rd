@@ -8,6 +8,15 @@
 \description{
 This package contains boreal caribou demographic data which can be used as validation for the associated shiny-app and analysis. The overall goal of the bbou packages is to develop a more standardized and consistent method for the comparison of boreal caribou survival rates, recruitment and population dynamics across Canada.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://poissonconsulting.github.io/bboudata/}
+  \item \url{https://github.com/poissonconsulting/bboudata}
+  \item Report bugs at \url{https://github.com/poissonconsulting/bboudata/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
 
