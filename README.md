@@ -19,8 +19,8 @@ You can install the development version of bboudata from
 [GitHub](https://github.com/poissonconsulting/bboudata) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("poissonconsulting/bboudata")
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/bboudata")
 ```
 
 ## Demonstration
