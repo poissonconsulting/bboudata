@@ -1,6 +1,6 @@
 Package: bboudata
 Title: Data for bbou Project
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: c(
     person("Troy", "Hegel", , "troy.hegel@gov.ab.ca", role = "aut"),
     person("Dave", "Hervieux", , "dave.hervieux@gov.ab.ca", role = "aut"),

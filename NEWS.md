@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# bboudata 0.3.1
+
+- Fix documentation as number of years the data sets span was incorrect. 
+
 # bboudata 0.3.0
 
 - Add 4 simulated data sets
