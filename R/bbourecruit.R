@@ -86,7 +86,7 @@
 
 #' Simulated Data for Scenario 1
 #'
-#' Data are simulated with `bbousims` package.
+#' Data are simulated with [`bbousims`](https://poissonconsulting.github.io/bbousims/) package.
 #' This is a stable population spanning 20 years with annual variation on
 #' female adult survival and female calf survival.
 #' Coverage is low, with 20% of groups observed and 10 collars.
@@ -110,7 +110,7 @@
 
 #' Simulated Data for Scenario 2
 #'
-#' Data are simulated with `bbousims` package.
+#' Data are simulated with [`bbousims`](https://poissonconsulting.github.io/bbousims/) package.
 #' This is a stable population spanning 20 years with annual variation on
 #' female adult survival and female calf survival.
 #' Coverage is high, with 70% of groups observed and 40 collars.
@@ -133,7 +133,7 @@
 
 #' Simulated Data for Scenario 3
 #'
-#' Data are simulated with `bbousims` package.
+#' Data are simulated with [`bbousims`](https://poissonconsulting.github.io/bbousims/) package.
 #' This is a population spanning 20 years with negative trend on female adult survival
 #' and additional annual variation on female adult survival and female calf survival.
 #' Coverage is medium, with 50% of groups observed and 25 collars.
@@ -156,7 +156,7 @@
 
 #' Simulated Data for Scenario 4
 #'
-#' Data are simulated with `bbousims` package.
+#' Data are simulated with [`bbousims`](https://poissonconsulting.github.io/bbousims/) package.
 #' This is a stable population spanning 20 years with small population size
 #' (50 initial adult females) and annual variation on female adult survival and female calf survival.
 #' Coverage is medium, with 40% of groups observed and 20 collars.

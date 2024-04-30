@@ -23,7 +23,7 @@ group}
 bbourecruit_sim3
 }
 \description{
-Data are simulated with \code{bbousims} package.
+Data are simulated with \href{https://poissonconsulting.github.io/bbousims/}{\code{bbousims}} package.
 This is a population spanning 20 years with negative trend on female adult survival
 and additional annual variation on female adult survival and female calf survival.
 Coverage is medium, with 50\% of groups observed and 25 collars.

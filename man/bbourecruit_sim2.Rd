@@ -23,7 +23,7 @@ group}
 bbourecruit_sim2
 }
 \description{
-Data are simulated with \code{bbousims} package.
+Data are simulated with \href{https://poissonconsulting.github.io/bbousims/}{\code{bbousims}} package.
 This is a stable population spanning 20 years with annual variation on
 female adult survival and female calf survival.
 Coverage is high, with 70\% of groups observed and 40 collars.
