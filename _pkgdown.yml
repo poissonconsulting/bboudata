@@ -1,6 +1,5 @@
 url: https://poissonconsulting.github.io/bboudata/
 
-destination: docs
 
 reference:
 - title: Recruitment
@@ -25,3 +24,5 @@ reference:
   contents:
   - '`bbd_chk_data_recruitment`'
   - '`bbd_chk_data_survival`'
+template:
+  package: poissontemplate
