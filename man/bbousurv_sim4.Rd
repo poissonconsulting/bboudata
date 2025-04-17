@@ -26,5 +26,12 @@ Data are simulated with \href{https://poissonconsulting.github.io/bbousims/}{\co
 This is a stable population spanning 20 years with small population size
 (50 initial adult females) and annual variation on female adult survival and female calf survival.
 Coverage is medium, with 40\% of groups observed and 20 collars.
+The dataset follows methodology described in DeCesare et al. (2012) for estimating
+population growth rates using adult female survival data.
+}
+\references{
+DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+Estimating ungulate recruitment and growth rates using age ratios.
+The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 }
 \keyword{datasets}
