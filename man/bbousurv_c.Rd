@@ -22,10 +22,16 @@ confirmed in that month}
 bbousurv_c
 }
 \description{
-The data contains survival information for boreal caribou population C
-which spans 11 years.
+The data contains anonymized survival information for boreal caribou population 'C',
+which spans 11 years. This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+population growth rates using adult female survival data.
 }
 \details{
 The data is released under the \href{https://open.alberta.ca/licence}{Open Government Licence - Alberta}
+}
+\references{
+DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+Estimating ungulate recruitment and growth rates using age ratios.
+The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 }
 \keyword{datasets}

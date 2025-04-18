@@ -22,9 +22,16 @@ confirmed in that month}
 bbousurv_sim1
 }
 \description{
-Data are simulated with \href{https://poissonconsulting.github.io/bbousims/}{\code{bbousims}} package.
+Data are simulated with the \href{https://poissonconsulting.github.io/bbousims/}{\code{bbousims}} package.
 This is a stable population spanning 20 years with annual variation on
 female adult survival and female calf survival.
 Coverage is low, with 20\% of groups observed and 10 collars.
+The dataset follows methodology described in DeCesare et al. (2012) for estimating
+population growth rates using adult female survival data.
+}
+\references{
+DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+Estimating ungulate recruitment and growth rates using age ratios.
+The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 }
 \keyword{datasets}

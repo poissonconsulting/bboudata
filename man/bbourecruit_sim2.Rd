@@ -25,7 +25,13 @@ bbourecruit_sim2
 \description{
 Data are simulated with \href{https://poissonconsulting.github.io/bbousims/}{\code{bbousims}} package.
 This is a stable population spanning 20 years with annual variation on
-female adult survival and female calf survival.
-Coverage is high, with 70\% of groups observed and 40 collars.
+female adult survival and female calf survival. Coverage is high, with 70\% of groups observed and 40 collars.
+This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+population growth rates using calf/cow age ratios.
+}
+\references{
+DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+Estimating ungulate recruitment and growth rates using age ratios.
+The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 }
 \keyword{datasets}
