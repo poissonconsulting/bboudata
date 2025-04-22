@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# bboudata 0.3.2
+
+- Improve dataset documentation by clarifying that empirical data are 'anonymized' and adding DeCesare et al. 2012 reference. 
+
 # bboudata 0.3.1
 
 - Fix documentation as number of years the data sets span was incorrect. 

@@ -14,12 +14,18 @@
 
 #' Sample Data for Population A
 #'
-#' The data contains survival information for boreal caribou population A
-#' which spans 31 years.
+#' The data contains anonymized survival information for boreal caribou population 'A',
+#' which spans 31 years. This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
 #'
 #' @details
 #' The data is released under the [Open Government Licence -
 #' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 #'
 #' @format A tibble with columns:
 #' \describe{
@@ -38,12 +44,18 @@
 
 #' Sample Data for Population B
 #'
-#' The data contains survival information for boreal caribou population B
-#' which spans 18 years.
+#' The data contains anonymized survival information for boreal caribou population 'B',
+#' which spans 18 years. This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
 #'
 #' @details
 #' The data is released under the [Open Government Licence -
 #' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 #'
 #' @format A tibble with columns:
 #' \describe{
@@ -62,12 +74,18 @@
 
 #' Sample Data for Population C
 #'
-#' The data contains survival information for boreal caribou population C
-#' which spans 11 years.
+#' The data contains anonymized survival information for boreal caribou population 'C',
+#' which spans 11 years. This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
 #'
 #' @details
 #' The data is released under the [Open Government Licence -
 #' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 #'
 #' @format A tibble with columns:
 #' \describe{
@@ -86,11 +104,17 @@
 
 #' Simulated Data for Scenario 1
 #'
-#' Data are simulated with [`bbousims`](https://poissonconsulting.github.io/bbousims/) package.
+#' Data are simulated with the [`bbousims`](https://poissonconsulting.github.io/bbousims/) package.
 #' This is a stable population spanning 20 years with annual variation on
 #' female adult survival and female calf survival.
 #' Coverage is low, with 20% of groups observed and 10 collars.
+#' The dataset follows methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
 #'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 #'
 #' @format A tibble with columns:
 #' \describe{
@@ -113,6 +137,13 @@
 #' This is a stable population spanning 20 years with annual variation on
 #' female adult survival and female calf survival.
 #' Coverage is high, with 70% of groups observed and 40 collars.
+#' The dataset follows methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 #'
 #' @format A tibble with columns:
 #' \describe{
@@ -135,6 +166,13 @@
 #' This is a population spanning 20 years with negative trend on female adult survival
 #' and additional annual variation on female adult survival and female calf survival.
 #' Coverage is medium, with 50% of groups observed and 25 collars.
+#' The dataset follows methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 #'
 #' @format A tibble with columns:
 #' \describe{
@@ -157,6 +195,13 @@
 #' This is a stable population spanning 20 years with small population size
 #' (50 initial adult females) and annual variation on female adult survival and female calf survival.
 #' Coverage is medium, with 40% of groups observed and 20 collars.
+#' The dataset follows methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
 #'
 #' @format A tibble with columns:
 #' \describe{
