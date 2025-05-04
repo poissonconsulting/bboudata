@@ -2,4 +2,5 @@
 
 export(bbd_chk_data_recruitment)
 export(bbd_chk_data_survival)
+export(licensing_md)
 import(tibble)
