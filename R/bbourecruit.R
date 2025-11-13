@@ -43,6 +43,68 @@
 #'
 "bbourecruit_a"
 
+#' Sample Data for Multiple Populations
+#'
+#' The data contains anonymized recruitment information for boreal caribou population 'A', 'B' and 'C'.
+#' This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using calf/cow age ratios.
+#'
+#' @details The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_multi"
+
+#' Sample Data with Missing Group Composition Data
+#'
+#' The data contains anonymized recruitment information for boreal caribou population 'C',
+#' with some years having missing data. This dataset can be used to test
+#' handling of incomplete observation data. The dataset follows the methodology
+#' described in DeCesare et al. (2012) for estimating population growth rates using
+#' calf/cow age ratios.
+#'
+#' @details The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_missing"
+
 #' Sample Data for Population B
 #'
 #' The data contains anonymized recruitment information for boreal caribou population 'B'

@@ -103,6 +103,97 @@
 #'
 "bbousurv_c"
 
+#' Sample Data for Multiple Populations
+#'
+#' The data contains anonymized survival information for boreal caribou population 'A', 'B' and 'C'.
+#' This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
+#'
+#' @details
+#' The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{StartTotal}{The total number of collared caribou at the start of the
+#' month}
+#' \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+#' month}
+#' \item{MortalitiesUncertain}{The total number of mortalities that were not
+#' confirmed in that month}
+#' }
+#'
+"bbousurv_multi"
+
+#' Sample Data for Annual Survival Data
+#'
+#' The data contains anonymized survival information for boreal caribou population 'C', aggregated by year.
+#' This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using adult female survival data.
+#'
+#' @details
+#' The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{StartTotal}{The total number of collared caribou at the start of the
+#' month}
+#' \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+#' month}
+#' \item{MortalitiesUncertain}{The total number of mortalities that were not
+#' confirmed in that month}
+#' }
+#'
+"bbousurv_annual"
+
+#' Sample Data with Missing StartTotal Values
+#'
+#' The data contains anonymized survival information for boreal caribou population 'C',
+#' with some years having missing data. This dataset can be used
+#' to test handling of incomplete collar data. The dataset follows the methodology described
+#' in DeCesare et al. (2012) for estimating population growth rates using adult female survival data.
+#'
+#' @details
+#' The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{StartTotal}{The total number of collared caribou at the start of the
+#' month}
+#' \item{MortalitiesCertain}{The number of confirmed caribou mortalities in the
+#' month}
+#' \item{MortalitiesUncertain}{The total number of mortalities that were not
+#' confirmed in that month}
+#' }
+#'
+"bbousurv_missing"
+
 #' Simulated Data for Scenario 1
 #'
 #' Data are simulated with the [`bbousims`](https://poissonconsulting.github.io/bbousims/) package.
