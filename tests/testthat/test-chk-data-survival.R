@@ -110,3 +110,24 @@ test_that("error StartTotal doesn't add up", {
     regexp = "Sum of 'MortalitiesCertain' and 'MortalitiesUncertain'must not be greater than 'StartTotal'."
   )
 })
+
+test_that("can accept multiple populations", {
+  x <- bboudata::bbousurv_multi
+  chk::expect_chk_error(
+    bbd_chk_data_survival(x)
+  )
+
+  expect_equal(bbd_chk_data_survival(x, multi_population = TRUE), x)
+})
+
+test_that("can accept missing values", {
+  x <- bboudata::bbousurv_a
+  x$MortalitiesCertain[1] <- NA_integer_
+  x$MortalitiesUncertain[2] <- NA_integer_
+  x$StartTotal[3] <- NA_integer_
+  chk::expect_chk_error(
+    bbd_chk_data_survival(x)
+  )
+
+  expect_equal(bbd_chk_data_survival(x, multi_population = TRUE, allow_missing = TRUE), x)
+})

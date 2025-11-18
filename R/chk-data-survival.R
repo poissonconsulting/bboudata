@@ -33,10 +33,12 @@
 #' confirmed in that month. Must be a positive integer.}
 #' }
 #'
-#' @param data The data frame check.
-#' @param x_name Name of data frame.
+#' @param data The data.frame to check.
+#' @param x_name A string of the name of the data.frame.
+#' @param multi_population A flag indicating whether to accept multiple populations.
+#' @param allow_missing A flag indicating whether to accept missing values for 'StartTotal', 'MortalitiesCertain', or 'MortalitiesUncertain' or columns.
 #'
-#' @return An invisible copy of the original data frame.
+#' @return An invisible copy of the original data.frame.
 #' @export
 #'
 #' @examples
@@ -48,7 +50,12 @@
 #' x <- bbousurv_c
 #' x[1, 3] <- 14L
 #' try(bbd_chk_data_survival(x))
-bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data))) {
+bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
+                                  multi_population = FALSE, allow_missing = FALSE) {
+
+  chk::chk_flag(multi_population)
+  chk::chk_flag(allow_missing)
+
   nms <- c(
     "PopulationName", "Year", "Month", "StartTotal",
     "MortalitiesCertain", "MortalitiesUncertain"
@@ -57,7 +64,9 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data))) {
 
   chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
-  .chk_population(data)
+  if(!multi_population){
+    .chk_population1(data)
+  }
 
   chk::chk_whole_numeric(data$Year, x_name = xname(x_name, "Year"))
   chk::chk_gte(data$Year, 0, x_name = xname(x_name, "Year"))
@@ -78,11 +87,15 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data))) {
 
   chk::chk_not_any_na(data$Year, x_name = "Year")
   chk::chk_not_any_na(data$Month, x_name = "Month")
-  chk::chk_not_any_na(data$StartTotal, x_name = "StartTotal")
-  chk::chk_not_any_na(data$MortalitiesCertain, x_name = "MortalitiesCertain")
-  chk::chk_not_any_na(data$MortalitiesUncertain, x_name = "MortalitiesUncertain")
 
-  .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
+  if(!allow_missing){
+    chk::chk_not_any_na(data$StartTotal, x_name = "StartTotal")
+    chk::chk_not_any_na(data$MortalitiesCertain, x_name = "MortalitiesCertain")
+    chk::chk_not_any_na(data$MortalitiesUncertain, x_name = "MortalitiesUncertain")
+    .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
+  } else {
+    .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal", na.rm = TRUE)
+  }
 
   invisible(data)
 }

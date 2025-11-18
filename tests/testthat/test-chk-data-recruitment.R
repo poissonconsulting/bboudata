@@ -78,12 +78,23 @@ test_that("error if missing values in recruitment dates and popname column", {
     bbd_chk_data_recruitment(x),
     regexp = "Day must not have any missing values\\."
   )
-
-  x <- bboudata::bbourecruit_a
-  x[1, 5] <- NA_integer_
-  x_chk <- bbd_chk_data_recruitment(x)
-  expect_equal(
-    bbd_chk_data_recruitment(x),
-    x
-  )
 })
+
+test_that("can accept multiple populations", {
+  x <- bboudata::bbourecruit_multi
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x)
+  )
+
+  expect_equal(bbd_chk_data_recruitment(x, multi_population = TRUE), x)
+})
+
+test_that("can accept missing values", {
+  x <- bboudata::bbourecruit_missing
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x)
+  )
+
+  expect_equal(bbd_chk_data_recruitment(x, allow_missing = TRUE), x)
+})
+

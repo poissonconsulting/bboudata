@@ -20,15 +20,24 @@ confirmed in that month. Must be a positive integer.}
 }
 }
 \usage{
-bbd_chk_data_survival(data, x_name = deparse(substitute(data)))
+bbd_chk_data_survival(
+  data,
+  x_name = deparse(substitute(data)),
+  multi_population = FALSE,
+  allow_missing = FALSE
+)
 }
 \arguments{
-\item{data}{The data frame check.}
+\item{data}{The data.frame to check.}
 
-\item{x_name}{Name of data frame.}
+\item{x_name}{A string of the name of the data.frame.}
+
+\item{multi_population}{A flag indicating whether to accept multiple populations.}
+
+\item{allow_missing}{A flag indicating whether to accept missing values for 'StartTotal', 'MortalitiesCertain', or 'MortalitiesUncertain' or columns.}
 }
 \value{
-An invisible copy of the original data frame.
+An invisible copy of the original data.frame.
 }
 \description{
 The data must follow all requirements to not error. This format is required
