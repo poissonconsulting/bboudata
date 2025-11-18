@@ -13,15 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.chk_population <- function(x) {
-  if (.vld_population(x)) {
+.chk_population1 <- function(x) {
+  if (.vld_population1(x)) {
     return(invisible())
   }
   chk::abort_chk("'PopulationName' can only contain one unique value.")
 }
 
-.chk_sum_less <- function(x, colsum, coltot) {
-  if (.vld_sum_less(x, colsum, coltot)) {
+.chk_sum_less <- function(x, colsum, coltot, na.rm = FALSE) {
+  if (.vld_sum_less(x, colsum, coltot, na.rm = na.rm)) {
     return(invisible())
   }
   chk::abort_chk(
@@ -35,11 +35,11 @@
   )
 }
 
-.vld_sum_less <- function(x, colsum, coltot) {
-  all(rowSums(x[colsum]) <= x[[coltot]])
+.vld_sum_less <- function(x, colsum, coltot, na.rm = FALSE) {
+  all(rowSums(x[colsum]) <= x[[coltot]], na.rm = na.rm)
 }
 
-.vld_population <- function(x) {
+.vld_population1 <- function(x) {
   length(unique(x$PopulationName)) == 1L
 }
 
