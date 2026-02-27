@@ -22,7 +22,10 @@ confirmed in that month}
 bbousurv_annual
 }
 \description{
-The data contains anonymized survival information for boreal caribou population 'C', aggregated by year.
+The data contains anonymized survival information for boreal caribou populations 'A' and 'C',
+aggregated to annual resolution with staggered year ranges. Designed to test the combination
+of multi-population analysis with aggregate annual data. Filter to single population for
+simple annual-only testing.
 This dataset follows the methodology described in DeCesare et al. (2012) for estimating
 population growth rates using adult female survival data.
 }

@@ -105,7 +105,11 @@
 
 #' Sample Data for Multiple Populations
 #'
-#' The data contains anonymized survival information for boreal caribou population 'A', 'B' and 'C'.
+#' The data contains anonymized survival information for boreal caribou populations 'A', 'B' and 'C'
+#' with staggered year ranges, an internal gap (B missing 2008-2009), and unobserved year
+#' placeholder rows (2015 for all populations). Designed to test multi-population analysis,
+#' latent random effects for missing year-population combos, and unobserved year prediction.
+#' Filter to single population or remove placeholder rows (where Month is NA) as needed.
 #' This dataset follows the methodology described in DeCesare et al. (2012) for estimating
 #' population growth rates using adult female survival data.
 #'
@@ -135,7 +139,10 @@
 
 #' Sample Data for Annual Survival Data
 #'
-#' The data contains anonymized survival information for boreal caribou population 'C', aggregated by year.
+#' The data contains anonymized survival information for boreal caribou populations 'A' and 'C',
+#' aggregated to annual resolution with staggered year ranges. Designed to test the combination
+#' of multi-population analysis with aggregate annual data. Filter to single population for
+#' simple annual-only testing.
 #' This dataset follows the methodology described in DeCesare et al. (2012) for estimating
 #' population growth rates using adult female survival data.
 #'

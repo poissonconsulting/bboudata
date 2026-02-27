@@ -86,7 +86,19 @@ test_that("can accept multiple populations", {
     bbd_chk_data_recruitment(x)
   )
 
-  expect_equal(bbd_chk_data_recruitment(x, multi_population = TRUE), x)
+  # multi_population alone fails because dataset includes placeholder rows
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x, multi_population = TRUE)
+  )
+
+  # both flags needed for multi-pop dataset with unobserved years
+  expect_equal(
+    bbd_chk_data_recruitment(x, multi_population = TRUE, allow_missing = TRUE), x
+  )
+
+  # multi_population alone works when placeholder rows are removed
+  x_obs <- x[!is.na(x$Month), ]
+  expect_equal(bbd_chk_data_recruitment(x_obs, multi_population = TRUE), x_obs)
 })
 
 test_that("can accept missing values", {

@@ -22,7 +22,11 @@ confirmed in that month}
 bbousurv_multi
 }
 \description{
-The data contains anonymized survival information for boreal caribou population 'A', 'B' and 'C'.
+The data contains anonymized survival information for boreal caribou populations 'A', 'B' and 'C'
+with staggered year ranges, an internal gap (B missing 2008-2009), and unobserved year
+placeholder rows (2015 for all populations). Designed to test multi-population analysis,
+latent random effects for missing year-population combos, and unobserved year prediction.
+Filter to single population or remove placeholder rows (where Month is NA) as needed.
 This dataset follows the methodology described in DeCesare et al. (2012) for estimating
 population growth rates using adult female survival data.
 }

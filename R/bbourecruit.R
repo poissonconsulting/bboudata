@@ -45,7 +45,11 @@
 
 #' Sample Data for Multiple Populations
 #'
-#' The data contains anonymized recruitment information for boreal caribou population 'A', 'B' and 'C'.
+#' The data contains anonymized recruitment information for boreal caribou populations 'A', 'B' and 'C'
+#' with staggered year ranges, an internal gap (B missing 2009-2010), and unobserved year
+#' placeholder rows (2016 for all populations). Designed to test multi-population analysis,
+#' latent random effects for missing year-population combos, and unobserved year prediction.
+#' Filter to single population or remove placeholder rows (where Month is NA) as needed.
 #' This dataset follows the methodology described in DeCesare et al. (2012) for estimating
 #' population growth rates using calf/cow age ratios.
 #'
