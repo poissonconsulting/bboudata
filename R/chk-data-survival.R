@@ -36,7 +36,7 @@
 #' @param data The data.frame to check.
 #' @param x_name A string of the name of the data.frame.
 #' @param multi_population A flag indicating whether to accept multiple populations.
-#' @param allow_missing A flag indicating whether to accept missing values for 'StartTotal', 'MortalitiesCertain', or 'MortalitiesUncertain' or columns.
+#' @param allow_missing A flag indicating whether to accept placeholder rows for unobserved years. When TRUE, rows with all-NA measurement columns (Month, StartTotal, MortalitiesCertain, MortalitiesUncertain) are permitted. These rows signal unobserved years to the model.
 #'
 #' @return An invisible copy of the original data.frame.
 #' @export
@@ -71,27 +71,23 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
   chk::chk_whole_numeric(data$Year, x_name = xname(x_name, "Year"))
   chk::chk_gte(data$Year, 0, x_name = xname(x_name, "Year"))
 
-  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
-  chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+  chk::chk_not_any_na(data$Year, x_name = "Year")
 
+  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
   chk::chk_whole_numeric(data$StartTotal, x_name = xname(x_name, "StartTotal"))
   chk::chk_gte(data$StartTotal, 0, x_name = xname(x_name, "StartTotal"))
-
   chk::chk_whole_numeric(data$MortalitiesCertain, x_name = xname(x_name, "MortalitiesCertain"))
   chk::chk_gte(data$MortalitiesCertain, 0, x_name = xname(x_name, "MortalitiesCertain"))
-
   chk::chk_whole_numeric(data$MortalitiesUncertain, x_name = xname(x_name, "MortalitiesUncertain"))
   chk::chk_gte(data$MortalitiesUncertain, 0, x_name = xname(x_name, "MortalitiesUncertain"))
 
-  chk::check_key(data, c("PopulationName", "Year", "Month"))
-
-  chk::chk_not_any_na(data$Year, x_name = "Year")
-  chk::chk_not_any_na(data$Month, x_name = "Month")
-
   if(!allow_missing){
+    chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+    chk::chk_not_any_na(data$Month, x_name = "Month")
     chk::chk_not_any_na(data$StartTotal, x_name = "StartTotal")
     chk::chk_not_any_na(data$MortalitiesCertain, x_name = "MortalitiesCertain")
     chk::chk_not_any_na(data$MortalitiesUncertain, x_name = "MortalitiesUncertain")
+    chk::check_key(data, c("PopulationName", "Year", "Month"))
     .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
   } else {
     .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal", na.rm = TRUE)

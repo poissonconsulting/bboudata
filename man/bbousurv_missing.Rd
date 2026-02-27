@@ -3,7 +3,7 @@
 \docType{data}
 \name{bbousurv_missing}
 \alias{bbousurv_missing}
-\title{Sample Data with Missing StartTotal Values}
+\title{Sample Data with Unobserved Years}
 \format{
 A tibble with columns:
 \describe{
@@ -23,8 +23,11 @@ bbousurv_missing
 }
 \description{
 The data contains anonymized survival information for boreal caribou population 'C',
-with some years having missing data. This dataset can be used
-to test handling of incomplete collar data. The dataset follows the methodology described
+with years 2010-2013 represented as single placeholder rows with all-NA measurement
+columns. These placeholder rows signal unobserved years to the model: the data pipeline
+uses them to set Annual factor levels, then strips them before building the likelihood.
+Random effects for unobserved years are estimated purely from the hierarchical prior.
+The dataset follows the methodology described
 in DeCesare et al. (2012) for estimating population growth rates using adult female survival data.
 }
 \details{

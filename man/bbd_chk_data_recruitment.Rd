@@ -41,7 +41,7 @@ bbd_chk_data_recruitment(
 
 \item{multi_population}{A flag indicating whether to accept multiple populations.}
 
-\item{allow_missing}{A flag indicating whether to accept missing values for 'Cows', 'Bulls', 'UnknownAdults', 'Yearlings', and 'Calves'.}
+\item{allow_missing}{A flag indicating whether to accept placeholder rows for unobserved years. When TRUE, rows with all-NA measurement columns (Month, Day, Cows, Bulls, UnknownAdults, Yearlings, Calves) are permitted. These rows signal unobserved years to the model.}
 }
 \value{
 An invisible copy of the original data.frame.

@@ -34,7 +34,7 @@ bbd_chk_data_survival(
 
 \item{multi_population}{A flag indicating whether to accept multiple populations.}
 
-\item{allow_missing}{A flag indicating whether to accept missing values for 'StartTotal', 'MortalitiesCertain', or 'MortalitiesUncertain' or columns.}
+\item{allow_missing}{A flag indicating whether to accept placeholder rows for unobserved years. When TRUE, rows with all-NA measurement columns (Month, StartTotal, MortalitiesCertain, MortalitiesUncertain) are permitted. These rows signal unobserved years to the model.}
 }
 \value{
 An invisible copy of the original data.frame.

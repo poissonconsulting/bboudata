@@ -45,14 +45,25 @@ bbourecruit_multi <-
     bbourecruit_c %>% dplyr::filter(Year %in% 2005:2013)
   )
 
-bbourecruit_missing <- 
-  bbourecruit_c %>% 
-  dplyr::mutate(
-    Cows = ifelse(Year %in% 2010:2013, NA, Cows),
-    Bulls = ifelse(Year %in% 2010:2013, NA, Bulls),
-    UnknownAdults = ifelse(Year %in% 2010:2013, NA, UnknownAdults),
-    Yearlings = ifelse(Year %in% 2010:2013, NA, Yearlings),
-    Calves = ifelse(Year %in% 2010:2013, NA, Calves)
+# One placeholder row per unobserved year with NA measurement columns.
+# The model uses these rows to set Annual factor levels for unobserved years,
+# then strips them before building the likelihood. The random effects for
+# unobserved years are estimated purely from the hierarchical prior.
+bbourecruit_missing <-
+  bbourecruit_c %>%
+  dplyr::filter(!(Year %in% 2010:2013)) %>%
+  dplyr::bind_rows(
+    tidyr::expand_grid(
+      PopulationName = "C",
+      Year = 2010:2013,
+      Month = NA_integer_,
+      Day = NA_integer_,
+      Cows = NA_integer_,
+      Bulls = NA_integer_,
+      UnknownAdults = NA_integer_,
+      Yearlings = NA_integer_,
+      Calves = NA_integer_
+    )
   )
 
 usethis::use_data(bbourecruit_a, overwrite = TRUE)
@@ -103,12 +114,20 @@ bbousurv_annual <-
   dplyr::ungroup() %>%
   dplyr::filter(!(Year %in% 2008:2009))
 
-bbousurv_missing <- 
-  bbousurv_c %>% 
-  dplyr::mutate(
-    StartTotal = ifelse(Year %in% 2010:2013, NA, StartTotal),
-    MortalitiesCertain = ifelse(Year %in% 2010:2013, NA, MortalitiesCertain),
-    MortalitiesUncertain = ifelse(Year %in% 2010:2013, NA, MortalitiesUncertain)
+# One placeholder row per unobserved year with NA measurement columns.
+# See bbourecruit_missing comment above for rationale.
+bbousurv_missing <-
+  bbousurv_c %>%
+  dplyr::filter(!(Year %in% 2010:2013)) %>%
+  dplyr::bind_rows(
+    tidyr::expand_grid(
+      PopulationName = "C",
+      Year = 2010:2013,
+      Month = NA_integer_,
+      StartTotal = NA_integer_,
+      MortalitiesCertain = NA_integer_,
+      MortalitiesUncertain = NA_integer_
+    )
   )
 
 usethis::use_data(bbousurv_a, overwrite = TRUE)

@@ -43,7 +43,7 @@
 #' @param data The data.frame to check.
 #' @param x_name A string of the name of the data.frame.
 #' @param multi_population A flag indicating whether to accept multiple populations.
-#' @param allow_missing A flag indicating whether to accept missing values for 'Cows', 'Bulls', 'UnknownAdults', 'Yearlings', and 'Calves'.
+#' @param allow_missing A flag indicating whether to accept placeholder rows for unobserved years. When TRUE, rows with all-NA measurement columns (Month, Day, Cows, Bulls, UnknownAdults, Yearlings, Calves) are permitted. These rows signal unobserved years to the model.
 
 #' @return An invisible copy of the original data.frame.
 #' @export
@@ -74,32 +74,26 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
   chk::chk_whole_numeric(data$Year, x_name = xname(x_name, "Year"))
   chk::chk_gte(data$Year, 0, x_name = xname(x_name, "Year"))
 
-  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
-  chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
-
-  chk::chk_whole_numeric(data$Day, x_name = xname(x_name, "Day"))
-  chk::chk_range(data$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
-
   chk::chk_not_any_na(data$Year, x_name = "Year")
-  chk::chk_not_any_na(data$Month, x_name = "Month")
-  chk::chk_not_any_na(data$Day, x_name = "Day")
 
-    chk::chk_whole_numeric(data$Cows, x_name = xname(x_name, "Cows"))
+  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
+  chk::chk_whole_numeric(data$Day, x_name = xname(x_name, "Day"))
+  chk::chk_whole_numeric(data$Cows, x_name = xname(x_name, "Cows"))
   chk::chk_gte(data$Cows, 0, x_name = xname(x_name, "Cows"))
-
   chk::chk_whole_numeric(data$Bulls, x_name = xname(x_name, "Bulls"))
   chk::chk_gte(data$Bulls, 0, x_name = xname(x_name, "Bulls"))
-
   chk::chk_whole_numeric(data$UnknownAdults, x_name = xname(x_name, "UnknownAdults"))
   chk::chk_gte(data$UnknownAdults, 0, x_name = xname(x_name, "UnknownAdults"))
-
   chk::chk_whole_numeric(data$Yearlings, x_name = xname(x_name, "Yearlings"))
   chk::chk_gte(data$Yearlings, 0, x_name = xname(x_name, "Yearlings"))
-
   chk::chk_whole_numeric(data$Calves, x_name = xname(x_name, "Calves"))
   chk::chk_gte(data$Calves, 0, x_name = xname(x_name, "Calves"))
 
   if(!allow_missing){
+    chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+    chk::chk_not_any_na(data$Month, x_name = "Month")
+    chk::chk_range(data$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
+    chk::chk_not_any_na(data$Day, x_name = "Day")
     chk::chk_not_any_na(data$Cows, x_name = xname(x_name, "Cows"))
     chk::chk_not_any_na(data$Bulls, x_name = xname(x_name, "Bulls"))
     chk::chk_not_any_na(data$UnknownAdults, x_name = xname(x_name, "UnknownAdults"))

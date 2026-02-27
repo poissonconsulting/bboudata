@@ -73,11 +73,14 @@
 #'
 "bbourecruit_multi"
 
-#' Sample Data with Missing Group Composition Data
+#' Sample Data with Unobserved Years
 #'
 #' The data contains anonymized recruitment information for boreal caribou population 'C',
-#' with some years having missing data. This dataset can be used to test
-#' handling of incomplete observation data. The dataset follows the methodology
+#' with years 2010-2013 represented as single placeholder rows with all-NA measurement
+#' columns. These placeholder rows signal unobserved years to the model: the data pipeline
+#' uses them to set Annual factor levels, then strips them before building the likelihood.
+#' Random effects for unobserved years are estimated purely from the hierarchical prior.
+#' The dataset follows the methodology
 #' described in DeCesare et al. (2012) for estimating population growth rates using
 #' calf/cow age ratios.
 #'
