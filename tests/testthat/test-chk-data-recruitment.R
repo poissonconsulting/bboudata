@@ -110,3 +110,45 @@ test_that("can accept missing values", {
   expect_equal(bbd_chk_data_recruitment(x, allow_missing = TRUE), x)
 })
 
+test_that("partial NA measurement columns error with allow_missing", {
+  # single column NA on one row
+  x <- bboudata::bbourecruit_a
+  x$Cows[1] <- NA_integer_
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x, allow_missing = TRUE),
+    "Placeholder rows must have all measurement columns"
+  )
+
+  # four of five columns NA on one row
+  x <- bboudata::bbourecruit_a
+  x$Cows[1] <- NA_integer_
+  x$Bulls[1] <- NA_integer_
+  x$UnknownAdults[1] <- NA_integer_
+  x$Yearlings[1] <- NA_integer_
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x, allow_missing = TRUE),
+    "Placeholder rows must have all measurement columns"
+  )
+})
+
+test_that("proper placeholder rows pass with allow_missing", {
+  x <- bboudata::bbourecruit_a
+  # add a proper placeholder row: all measurement columns NA
+  placeholder <- x[1, ]
+  placeholder$Year <- 2099L
+  placeholder$Month <- NA_integer_
+  placeholder$Day <- NA_integer_
+  placeholder$Cows <- NA_integer_
+  placeholder$Bulls <- NA_integer_
+  placeholder$UnknownAdults <- NA_integer_
+  placeholder$Yearlings <- NA_integer_
+  placeholder$Calves <- NA_integer_
+  x2 <- rbind(x, placeholder)
+
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x2)
+  )
+
+  expect_equal(bbd_chk_data_recruitment(x2, allow_missing = TRUE), x2)
+})
+

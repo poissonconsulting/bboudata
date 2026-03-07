@@ -99,6 +99,8 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
     chk::chk_not_any_na(data$UnknownAdults, x_name = xname(x_name, "UnknownAdults"))
     chk::chk_not_any_na(data$Yearlings, x_name = xname(x_name, "Yearlings"))
     chk::chk_not_any_na(data$Calves, x_name = xname(x_name, "Calves"))
+  } else {
+    .chk_placeholder_all_or_nothing(data, c("Cows", "Bulls", "UnknownAdults", "Yearlings", "Calves"))
   }
 
   invisible(data)

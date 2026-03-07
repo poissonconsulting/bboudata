@@ -43,6 +43,25 @@
   length(unique(x$PopulationName)) == 1L
 }
 
+.chk_placeholder_all_or_nothing <- function(data, measurement_cols) {
+  na_counts <- rowSums(is.na(data[measurement_cols]))
+  partial <- na_counts > 0L & na_counts < length(measurement_cols)
+  if (!any(partial)) {
+    return(invisible())
+  }
+
+  rows <- which(partial)
+  chk::abort_chk(
+    paste0(
+      "Placeholder rows must have all measurement columns (",
+      chk::cc(measurement_cols, " and "),
+      ") as NA, not just some. Found partial NA in row(s): ",
+      chk::cc(rows, " and "),
+      "."
+    )
+  )
+}
+
 xname <- function(x, col) {
   paste("Column", col, "of", x)
 }

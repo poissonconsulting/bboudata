@@ -90,6 +90,7 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
     chk::check_key(data, c("PopulationName", "Year", "Month"))
     .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
   } else {
+    .chk_placeholder_all_or_nothing(data, c("StartTotal", "MortalitiesCertain", "MortalitiesUncertain"))
     .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal", na.rm = TRUE)
   }
 
