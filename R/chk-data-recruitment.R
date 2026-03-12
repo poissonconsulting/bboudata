@@ -67,7 +67,7 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
 
   chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
-  if(!multi_population){
+  if (!multi_population) {
     .chk_population1(data)
   }
 
@@ -89,7 +89,7 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
   chk::chk_whole_numeric(data$Calves, x_name = xname(x_name, "Calves"))
   chk::chk_gte(data$Calves, 0, x_name = xname(x_name, "Calves"))
 
-  if(!allow_missing){
+  if (!allow_missing) {
     chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
     chk::chk_not_any_na(data$Month, x_name = "Month")
     chk::chk_range(data$Day, range = c(1, 31), x_name = xname(x_name, "Day"))

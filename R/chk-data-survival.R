@@ -52,7 +52,6 @@
 #' try(bbd_chk_data_survival(x))
 bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
                                   multi_population = FALSE, allow_missing = FALSE) {
-
   chk::chk_flag(multi_population)
   chk::chk_flag(allow_missing)
 
@@ -64,7 +63,7 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
 
   chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
-  if(!multi_population){
+  if (!multi_population) {
     .chk_population1(data)
   }
 
@@ -81,7 +80,7 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
   chk::chk_whole_numeric(data$MortalitiesUncertain, x_name = xname(x_name, "MortalitiesUncertain"))
   chk::chk_gte(data$MortalitiesUncertain, 0, x_name = xname(x_name, "MortalitiesUncertain"))
 
-  if(!allow_missing){
+  if (!allow_missing) {
     chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
     chk::chk_not_any_na(data$Month, x_name = "Month")
     chk::chk_not_any_na(data$StartTotal, x_name = "StartTotal")

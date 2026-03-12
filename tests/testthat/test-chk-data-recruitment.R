@@ -151,4 +151,3 @@ test_that("proper placeholder rows pass with allow_missing", {
 
   expect_equal(bbd_chk_data_recruitment(x2, allow_missing = TRUE), x2)
 })
-
