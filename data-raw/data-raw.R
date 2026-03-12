@@ -51,10 +51,10 @@ bbourecruit_c <- readxl::read_excel(path, sheets[3]) |>
 # C:     .  .  X  X  X  X  X  X  X  X  X  .  .  P
 bbourecruit_multi <-
   dplyr::bind_rows(
-    bbourecruit_a %>% dplyr::filter(Year %in% 2003:2010),
-    bbourecruit_b %>% dplyr::filter(Year %in% 2006:2015, !(Year %in% 2009:2010)),
-    bbourecruit_c %>% dplyr::filter(Year %in% 2005:2013)
-  ) %>%
+    bbourecruit_a |> dplyr::filter(Year %in% 2003:2010),
+    bbourecruit_b |> dplyr::filter(Year %in% 2006:2015, !(Year %in% 2009:2010)),
+    bbourecruit_c |> dplyr::filter(Year %in% 2005:2013)
+  ) |>
   dplyr::bind_rows(
     tidyr::expand_grid(
       PopulationName = c("A", "B", "C"),
@@ -72,8 +72,8 @@ bbourecruit_multi <-
 # Single-population dataset with unobserved years (placeholder rows).
 # Kept for simple single-pop unobserved year testing without multi-pop complexity.
 bbourecruit_missing <-
-  bbourecruit_c %>%
-  dplyr::filter(!(Year %in% 2010:2013)) %>%
+  bbourecruit_c |>
+  dplyr::filter(!(Year %in% 2010:2013)) |>
   dplyr::bind_rows(
     tidyr::expand_grid(
       PopulationName = "C",
@@ -132,10 +132,10 @@ bbousurv_c <- readxl::read_excel(path, sheets[3]) |>
 # C:     .  .  X  X  X  X  X  X  X  X  X  X  X  .  P
 bbousurv_multi <-
   dplyr::bind_rows(
-    bbousurv_a %>% dplyr::filter(Year %in% 2001:2010),
-    bbousurv_b %>% dplyr::filter(Year %in% 2005:2014, !(Year %in% 2008:2009)),
-    bbousurv_c %>% dplyr::filter(Year %in% 2003:2013)
-  ) %>%
+    bbousurv_a |> dplyr::filter(Year %in% 2001:2010),
+    bbousurv_b |> dplyr::filter(Year %in% 2005:2014, !(Year %in% 2008:2009)),
+    bbousurv_c |> dplyr::filter(Year %in% 2003:2013)
+  ) |>
   dplyr::bind_rows(
     tidyr::expand_grid(
       PopulationName = c("A", "B", "C"),
@@ -156,10 +156,10 @@ bbousurv_multi <-
 # C:     .  .  X  X  X  X  X  .  .  X  X  X  X
 bbousurv_annual <-
   dplyr::bind_rows(
-    bbousurv_a %>% dplyr::filter(Year %in% 2001:2008),
-    bbousurv_c %>% dplyr::filter(Year %in% 2003:2013, !(Year %in% 2008:2009))
-  ) %>%
-  dplyr::group_by(PopulationName, Year) %>%
+    bbousurv_a |> dplyr::filter(Year %in% 2001:2008),
+    bbousurv_c |> dplyr::filter(Year %in% 2003:2013, !(Year %in% 2008:2009))
+  ) |>
+  dplyr::group_by(PopulationName, Year) |>
   dplyr::summarize(
     Month = 4L,
     StartTotal = max(StartTotal),
@@ -171,8 +171,8 @@ bbousurv_annual <-
 # Single-population dataset with unobserved years (placeholder rows).
 # Kept for simple single-pop unobserved year testing without multi-pop complexity.
 bbousurv_missing <-
-  bbousurv_c %>%
-  dplyr::filter(!(Year %in% 2010:2013)) %>%
+  bbousurv_c |>
+  dplyr::filter(!(Year %in% 2010:2013)) |>
   dplyr::bind_rows(
     tidyr::expand_grid(
       PopulationName = "C",
