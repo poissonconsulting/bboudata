@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.chk_population1 <- function(x) {
-  if (.vld_population1(x)) {
+.chk_single_population <- function(x) {
+  if (.vld_single_population(x)) {
     return(invisible())
   }
   chk::abort_chk("'PopulationName' can only contain one unique value.")
@@ -39,7 +39,7 @@
   all(rowSums(x[colsum]) <= x[[coltot]], na.rm = na.rm)
 }
 
-.vld_population1 <- function(x) {
+.vld_single_population <- function(x) {
   length(unique(x$PopulationName)) == 1L
 }
 

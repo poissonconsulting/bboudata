@@ -59,6 +59,9 @@
 #' try(bbd_chk_data_recruitment(x))
 bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
                                      multi_population = FALSE, allow_missing = FALSE) {
+  chk::chk_flag(multi_population)
+  chk::chk_flag(allow_missing)
+
   nms <- c(
     "PopulationName", "Year", "Month", "Day", "Cows",
     "Bulls", "UnknownAdults", "Yearlings", "Calves"
@@ -68,7 +71,7 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
   chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
   if (!multi_population) {
-    .chk_population1(data)
+    .chk_single_population(data)
   }
 
   chk::chk_whole_numeric(data$Year, x_name = xname(x_name, "Year"))
@@ -100,7 +103,28 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
     chk::chk_not_any_na(data$Yearlings, x_name = xname(x_name, "Yearlings"))
     chk::chk_not_any_na(data$Calves, x_name = xname(x_name, "Calves"))
   } else {
-    .chk_placeholder_all_or_nothing(data, c("Cows", "Bulls", "UnknownAdults", "Yearlings", "Calves"))
+    .chk_placeholder_all_or_nothing(
+      data,
+      c("Cows", "Bulls", "UnknownAdults", "Yearlings", "Calves")
+    )
+    placeholder <- is.na(data$Cows) &
+      is.na(data$Bulls) &
+      is.na(data$UnknownAdults) &
+      is.na(data$Yearlings) &
+      is.na(data$Calves)
+    if (any(placeholder) && !all(is.na(data$Month[placeholder]))) {
+      chk::abort_chk("Placeholder rows must have `Month` as NA.")
+    }
+    if (any(placeholder) && !all(is.na(data$Day[placeholder]))) {
+      chk::abort_chk("Placeholder rows must have `Day` as NA.")
+    }
+    if (any(!placeholder)) {
+      obs <- data[!placeholder, , drop = FALSE]
+      chk::chk_not_any_na(obs$Month, x_name = "Month")
+      chk::chk_range(obs$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+      chk::chk_not_any_na(obs$Day, x_name = "Day")
+      chk::chk_range(obs$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
+    }
   }
 
   invisible(data)

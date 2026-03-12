@@ -64,7 +64,7 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
   chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
   if (!multi_population) {
-    .chk_population1(data)
+    .chk_single_population(data)
   }
 
   chk::chk_whole_numeric(data$Year, x_name = xname(x_name, "Year"))
@@ -89,7 +89,22 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
     chk::check_key(data, c("PopulationName", "Year", "Month"))
     .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
   } else {
-    .chk_placeholder_all_or_nothing(data, c("StartTotal", "MortalitiesCertain", "MortalitiesUncertain"))
+    .chk_placeholder_all_or_nothing(
+      data,
+      c("StartTotal", "MortalitiesCertain", "MortalitiesUncertain")
+    )
+    placeholder <- is.na(data$StartTotal) &
+      is.na(data$MortalitiesCertain) &
+      is.na(data$MortalitiesUncertain)
+    if (any(placeholder) && !all(is.na(data$Month[placeholder]))) {
+      chk::abort_chk("Placeholder rows must have `Month` as NA.")
+    }
+    if (any(!placeholder)) {
+      obs <- data[!placeholder, , drop = FALSE]
+      chk::chk_not_any_na(obs$Month, x_name = "Month")
+      chk::chk_range(obs$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+      chk::check_key(obs, c("PopulationName", "Year", "Month"))
+    }
     .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal", na.rm = TRUE)
   }
 
