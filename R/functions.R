@@ -1,6 +1,8 @@
 # Copyright 2022-2023 Integrated Ecological Research and Poisson Consulting Ltd.
 # Copyright 2024 Province of Alberta
-# Copyright 2025 Environment and Climate Change Canada
+# Copyright © His Majesty the King in Right of Canada as represented by the
+# Minister of the Environment 2025/© Sa Majesté le Roi du chef du Canada
+# représentée par le ministre de l'Environnement 2025.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
