@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bboudata</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,23 @@
       <small>Source: <a href="https://github.com/poissonconsulting/bboudata/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="bboudata-040">bboudata 0.4.0<a class="anchor" aria-label="anchor" href="#bboudata-040"></a></h2>
+<p>Updated for bboutools 1.3.0.</p>
+<div class="section level3">
+<h3 id="new-features-0-4-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-4-0"></a></h3>
+<ul><li>
+<code><a href="../reference/bbd_chk_data_survival.html">bbd_chk_data_survival()</a></code> and <code><a href="../reference/bbd_chk_data_recruitment.html">bbd_chk_data_recruitment()</a></code> gained <code>multi_population</code> and <code>allow_missing</code> arguments to support multi-population data and unobserved year placeholder rows.</li>
+<li>
+<code><a href="../reference/bbd_chk_data_survival.html">bbd_chk_data_survival()</a></code> and <code><a href="../reference/bbd_chk_data_recruitment.html">bbd_chk_data_recruitment()</a></code> now validate that placeholder rows have all measurement columns as NA (not just some) when <code>allow_missing = TRUE</code> (<a href="https://github.com/poissonconsulting/bboudata/issues/94" class="external-link">#94</a>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="datasets-0-4-0">Datasets<a class="anchor" aria-label="anchor" href="#datasets-0-4-0"></a></h3>
+<ul><li>Added <code>bbousurv_multi</code> and <code>bbourecruit_multi</code> — multi-population datasets (populations A, B, C) with staggered year ranges, an internal data gap, and unobserved year placeholder rows.</li>
+<li>Added <code>bbousurv_missing</code> and <code>bbourecruit_missing</code> — single-population (C) datasets with unobserved year placeholder rows.</li>
+<li>Added <code>bbousurv_annual</code> — multi-population (A, C) aggregate annual survival data with staggered years.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.2" id="bboudata-032">bboudata 0.3.2<a class="anchor" aria-label="anchor" href="#bboudata-032"></a></h2>
 <ul><li>Improve dataset documentation by clarifying that empirical data are ‘anonymized’ and adding DeCesare et al. 2012 reference.</li>
@@ -85,7 +102,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
