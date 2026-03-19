@@ -15,6 +15,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-3658-4517")),
     person("Alan", "Constant", role = "ctb",
            comment = c(ORCID = "0000-0002-1652-4031")),
+    person("Josie", "Hughes", , "Josie.Hughes@ec.gc.ca", role = "ctb",
+           comment = "Multi-population and other extensions based on LandSciTech/bboudata"),
     person("Province of Alberta", role = "cph"),
     person("His Majesty the King in Right of Canada, as represented by the Minister of the Environment",
            role = "cph",
