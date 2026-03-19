@@ -1,4 +1,17 @@
-<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+# bboudata 0.4.0
+
+Updated for bboutools 1.3.0.
+
+## New features
+
+* `bbd_chk_data_survival()` and `bbd_chk_data_recruitment()` gained `multi_population` and `allow_missing` arguments to support multi-population data and unobserved year placeholder rows.
+* `bbd_chk_data_survival()` and `bbd_chk_data_recruitment()` now validate that placeholder rows have all measurement columns as NA (not just some) when `allow_missing = TRUE` (#94).
+
+## Datasets
+
+* Added `bbousurv_multi` and `bbourecruit_multi` — multi-population datasets (populations A, B, C) with staggered year ranges, an internal data gap, and unobserved year placeholder rows.
+* Added `bbousurv_missing` and `bbourecruit_missing` — single-population (C) datasets with unobserved year placeholder rows.
+* Added `bbousurv_annual` — multi-population (A, C) aggregate annual survival data with staggered years.
 
 # bboudata 0.3.2
 

@@ -1,5 +1,8 @@
 # Copyright 2022-2023 Integrated Ecological Research and Poisson Consulting Ltd.
 # Copyright 2024 Province of Alberta
+# Copyright (c) His Majesty the King in Right of Canada as represented by the
+# Minister of the Environment 2025/(c) Sa Majeste le Roi du chef du Canada
+# representee par le ministre de l'Environnement 2025.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -13,15 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.chk_population <- function(x) {
-  if (.vld_population(x)) {
+.chk_single_population <- function(x) {
+  if (.vld_single_population(x)) {
     return(invisible())
   }
   chk::abort_chk("'PopulationName' can only contain one unique value.")
 }
 
-.chk_sum_less <- function(x, colsum, coltot) {
-  if (.vld_sum_less(x, colsum, coltot)) {
+.chk_sum_less <- function(x, colsum, coltot, na.rm = FALSE) {
+  if (.vld_sum_less(x, colsum, coltot, na.rm = na.rm)) {
     return(invisible())
   }
   chk::abort_chk(
@@ -35,12 +38,31 @@
   )
 }
 
-.vld_sum_less <- function(x, colsum, coltot) {
-  all(rowSums(x[colsum]) <= x[[coltot]])
+.vld_sum_less <- function(x, colsum, coltot, na.rm = FALSE) {
+  all(rowSums(x[colsum]) <= x[[coltot]], na.rm = na.rm)
 }
 
-.vld_population <- function(x) {
+.vld_single_population <- function(x) {
   length(unique(x$PopulationName)) == 1L
+}
+
+.chk_placeholder_all_or_nothing <- function(data, measurement_cols) {
+  na_counts <- rowSums(is.na(data[measurement_cols]))
+  partial <- na_counts > 0L & na_counts < length(measurement_cols)
+  if (!any(partial)) {
+    return(invisible())
+  }
+
+  rows <- which(partial)
+  chk::abort_chk(
+    paste0(
+      "Placeholder rows must have all measurement columns (",
+      chk::cc(measurement_cols, " and "),
+      ") as NA, not just some. Found partial NA in row(s): ",
+      chk::cc(rows, " and "),
+      "."
+    )
+  )
 }
 
 xname <- function(x, col) {

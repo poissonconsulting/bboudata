@@ -1,5 +1,8 @@
 # Copyright 2022-2023 Integrated Ecological Research and Poisson Consulting Ltd.
 # Copyright 2024 Province of Alberta
+# Copyright (c) His Majesty the King in Right of Canada as represented by the
+# Minister of the Environment 2025/(c) Sa Majeste le Roi du chef du Canada
+# representee par le ministre de l'Environnement 2025.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -33,10 +36,12 @@
 #' confirmed in that month. Must be a positive integer.}
 #' }
 #'
-#' @param data The data frame check.
-#' @param x_name Name of data frame.
+#' @param data The data.frame to check.
+#' @param x_name A string of the name of the data.frame.
+#' @param multi_population A flag indicating whether to accept multiple populations.
+#' @param allow_missing A flag indicating whether to accept placeholder rows for unobserved years. When TRUE, rows with all-NA measurement columns (Month, StartTotal, MortalitiesCertain, MortalitiesUncertain) are permitted. These rows signal unobserved years to the model.
 #'
-#' @return An invisible copy of the original data frame.
+#' @return An invisible copy of the original data.frame.
 #' @export
 #'
 #' @examples
@@ -48,7 +53,11 @@
 #' x <- bbousurv_c
 #' x[1, 3] <- 14L
 #' try(bbd_chk_data_survival(x))
-bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data))) {
+bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
+                                  multi_population = FALSE, allow_missing = FALSE) {
+  chk::chk_flag(multi_population)
+  chk::chk_flag(allow_missing)
+
   nms <- c(
     "PopulationName", "Year", "Month", "StartTotal",
     "MortalitiesCertain", "MortalitiesUncertain"
@@ -57,32 +66,50 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data))) {
 
   chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
-  .chk_population(data)
+  if (!multi_population) {
+    .chk_single_population(data)
+  }
 
   chk::chk_whole_numeric(data$Year, x_name = xname(x_name, "Year"))
   chk::chk_gte(data$Year, 0, x_name = xname(x_name, "Year"))
 
-  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
-  chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+  chk::chk_not_any_na(data$Year, x_name = "Year")
 
+  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
   chk::chk_whole_numeric(data$StartTotal, x_name = xname(x_name, "StartTotal"))
   chk::chk_gte(data$StartTotal, 0, x_name = xname(x_name, "StartTotal"))
-
   chk::chk_whole_numeric(data$MortalitiesCertain, x_name = xname(x_name, "MortalitiesCertain"))
   chk::chk_gte(data$MortalitiesCertain, 0, x_name = xname(x_name, "MortalitiesCertain"))
-
   chk::chk_whole_numeric(data$MortalitiesUncertain, x_name = xname(x_name, "MortalitiesUncertain"))
   chk::chk_gte(data$MortalitiesUncertain, 0, x_name = xname(x_name, "MortalitiesUncertain"))
 
-  chk::check_key(data, c("PopulationName", "Year", "Month"))
-
-  chk::chk_not_any_na(data$Year, x_name = "Year")
-  chk::chk_not_any_na(data$Month, x_name = "Month")
-  chk::chk_not_any_na(data$StartTotal, x_name = "StartTotal")
-  chk::chk_not_any_na(data$MortalitiesCertain, x_name = "MortalitiesCertain")
-  chk::chk_not_any_na(data$MortalitiesUncertain, x_name = "MortalitiesUncertain")
-
-  .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
+  if (!allow_missing) {
+    chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+    chk::chk_not_any_na(data$Month, x_name = "Month")
+    chk::chk_not_any_na(data$StartTotal, x_name = "StartTotal")
+    chk::chk_not_any_na(data$MortalitiesCertain, x_name = "MortalitiesCertain")
+    chk::chk_not_any_na(data$MortalitiesUncertain, x_name = "MortalitiesUncertain")
+    chk::check_key(data, c("PopulationName", "Year", "Month"))
+    .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
+  } else {
+    .chk_placeholder_all_or_nothing(
+      data,
+      c("StartTotal", "MortalitiesCertain", "MortalitiesUncertain")
+    )
+    placeholder <- is.na(data$StartTotal) &
+      is.na(data$MortalitiesCertain) &
+      is.na(data$MortalitiesUncertain)
+    if (any(placeholder) && !all(is.na(data$Month[placeholder]))) {
+      chk::abort_chk("Placeholder rows must have `Month` as NA.")
+    }
+    if (any(!placeholder)) {
+      obs <- data[!placeholder, , drop = FALSE]
+      chk::chk_not_any_na(obs$Month, x_name = "Month")
+      chk::chk_range(obs$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+      chk::check_key(obs, c("PopulationName", "Year", "Month"))
+    }
+    .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal", na.rm = TRUE)
+  }
 
   invisible(data)
 }

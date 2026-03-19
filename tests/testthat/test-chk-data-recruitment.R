@@ -78,12 +78,76 @@ test_that("error if missing values in recruitment dates and popname column", {
     bbd_chk_data_recruitment(x),
     regexp = "Day must not have any missing values\\."
   )
+})
 
-  x <- bboudata::bbourecruit_a
-  x[1, 5] <- NA_integer_
-  x_chk <- bbd_chk_data_recruitment(x)
-  expect_equal(
-    bbd_chk_data_recruitment(x),
-    x
+test_that("can accept multiple populations", {
+  x <- bboudata::bbourecruit_multi
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x)
   )
+
+  # multi_population alone fails because dataset includes placeholder rows
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x, multi_population = TRUE)
+  )
+
+  # both flags needed for multi-pop dataset with unobserved years
+  expect_equal(
+    bbd_chk_data_recruitment(x, multi_population = TRUE, allow_missing = TRUE), x
+  )
+
+  # multi_population alone works when placeholder rows are removed
+  x_obs <- x[!is.na(x$Month), ]
+  expect_equal(bbd_chk_data_recruitment(x_obs, multi_population = TRUE), x_obs)
+})
+
+test_that("can accept missing values", {
+  x <- bboudata::bbourecruit_missing
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x)
+  )
+
+  expect_equal(bbd_chk_data_recruitment(x, allow_missing = TRUE), x)
+})
+
+test_that("partial NA measurement columns error with allow_missing", {
+  # single column NA on one row
+  x <- bboudata::bbourecruit_a
+  x$Cows[1] <- NA_integer_
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x, allow_missing = TRUE),
+    "Placeholder rows must have all measurement columns"
+  )
+
+  # four of five columns NA on one row
+  x <- bboudata::bbourecruit_a
+  x$Cows[1] <- NA_integer_
+  x$Bulls[1] <- NA_integer_
+  x$UnknownAdults[1] <- NA_integer_
+  x$Yearlings[1] <- NA_integer_
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x, allow_missing = TRUE),
+    "Placeholder rows must have all measurement columns"
+  )
+})
+
+test_that("proper placeholder rows pass with allow_missing", {
+  x <- bboudata::bbourecruit_a
+  # add a proper placeholder row: all measurement columns NA
+  placeholder <- x[1, ]
+  placeholder$Year <- 2099L
+  placeholder$Month <- NA_integer_
+  placeholder$Day <- NA_integer_
+  placeholder$Cows <- NA_integer_
+  placeholder$Bulls <- NA_integer_
+  placeholder$UnknownAdults <- NA_integer_
+  placeholder$Yearlings <- NA_integer_
+  placeholder$Calves <- NA_integer_
+  x2 <- rbind(x, placeholder)
+
+  chk::expect_chk_error(
+    bbd_chk_data_recruitment(x2)
+  )
+
+  expect_equal(bbd_chk_data_recruitment(x2, allow_missing = TRUE), x2)
 })

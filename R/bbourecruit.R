@@ -43,6 +43,75 @@
 #'
 "bbourecruit_a"
 
+#' Sample Data for Multiple Populations
+#'
+#' The data contains anonymized recruitment information for boreal caribou populations 'A', 'B' and 'C'
+#' with staggered year ranges, an internal gap (B missing 2009-2010), and unobserved year
+#' placeholder rows (2016 for all populations). Designed to test multi-population analysis,
+#' latent random effects for missing year-population combos, and unobserved year prediction.
+#' Filter to single population or remove placeholder rows (where Month is NA) as needed.
+#' This dataset follows the methodology described in DeCesare et al. (2012) for estimating
+#' population growth rates using calf/cow age ratios.
+#'
+#' @details The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_multi"
+
+#' Sample Data with Unobserved Years
+#'
+#' The data contains anonymized recruitment information for boreal caribou population 'C',
+#' with years 2010-2013 represented as single placeholder rows with all-NA measurement
+#' columns. These placeholder rows signal unobserved years to the model: the data pipeline
+#' uses them to set Annual factor levels, then strips them before building the likelihood.
+#' Random effects for unobserved years are estimated purely from the hierarchical prior.
+#' The dataset follows the methodology
+#' described in DeCesare et al. (2012) for estimating population growth rates using
+#' calf/cow age ratios.
+#'
+#' @details The data is released under the [Open Government Licence -
+#' Alberta](https://open.alberta.ca/licence)
+#'
+#' @references
+#' DeCesare, N.J., Hebblewhite, M., Bradley, M., Smith, K.G., Hervieux, D., & Neufeld, L. (2012).
+#' Estimating ungulate recruitment and growth rates using age ratios.
+#' The Journal of Wildlife Management, 76(1), 144-153. doi:10.1002/jwmg.244
+#'
+#' @format A tibble with columns:
+#' \describe{
+#' \item{PopulationName}{Name of the population}
+#' \item{Year}{The year the observation occurred}
+#' \item{Month}{The month the observation occurred}
+#' \item{Day}{The day the observation occurred}
+#' \item{Cows}{The number of cows counted in the group}
+#' \item{Bulls}{The number of bulls counted in the group}
+#' \item{UnknownAdults}{The number of adults which could not be sexed in the
+#' group}
+#' \item{Yearlings}{The number of yearlings counted in the group}
+#' \item{Calves}{The number of calves counted in the group}
+#' }
+#'
+"bbourecruit_missing"
+
 #' Sample Data for Population B
 #'
 #' The data contains anonymized recruitment information for boreal caribou population 'B'

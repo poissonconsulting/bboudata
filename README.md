@@ -1,4 +1,3 @@
-
 <!-- badges: start -->
 
 [![Lifecycle:
@@ -18,48 +17,45 @@ caribou.
 You can install the latest version of `bboudata` from
 [GitHub](https://github.com/poissonconsulting/bboudata) with:
 
-``` r
-# install.packages("remotes")
-remotes::install_github("poissonconsulting/bboudata")
-```
+    # install.packages("remotes")
+    remotes::install_github("poissonconsulting/bboudata")
 
 ## Demonstration
 
-``` r
-library(tibble) # to enhance readability
+    library(tibble) # to enhance readability
+    #> Warning: package 'tibble' was built under R version 4.5.3
 
-bboudata::bbourecruit_a
-#> # A tibble: 696 × 9
-#>   PopulationName  Year Month   Day  Cows Bulls UnknownAdults Yearlings Calves
-#>   <chr>          <int> <int> <int> <int> <int>         <int>     <int>  <int>
-#> 1 A               1990     3     9     1     1             0         0      0
-#> 2 A               1990     3     9     5     1             0         0      0
-#> 3 A               1990     3     9     4     1             0         0      0
-#> 4 A               1990     3     9     2     0             0         0      0
-#> 5 A               1990     3     9     6     0             0         0      0
-#> # ℹ 691 more rows
+    bboudata::bbourecruit_a
+    #> # A tibble: 696 × 9
+    #>   PopulationName  Year Month   Day  Cows Bulls UnknownAdults Yearlings Calves
+    #>   <chr>          <int> <int> <int> <int> <int>         <int>     <int>  <int>
+    #> 1 A               1990     3     9     1     1             0         0      0
+    #> 2 A               1990     3     9     5     1             0         0      0
+    #> 3 A               1990     3     9     4     1             0         0      0
+    #> 4 A               1990     3     9     2     0             0         0      0
+    #> 5 A               1990     3     9     6     0             0         0      0
+    #> # ℹ 691 more rows
 
-bboudata::bbousurv_a
-#> # A tibble: 364 × 6
-#>   PopulationName  Year Month StartTotal MortalitiesCertain MortalitiesUncertain
-#>   <chr>          <int> <int>      <int>              <int>                <int>
-#> 1 A               1986     1          0                  0                    0
-#> 2 A               1986     2          8                  0                    0
-#> 3 A               1986     3          8                  0                    0
-#> 4 A               1986     4          8                  0                    0
-#> 5 A               1986     5          8                  0                    0
-#> # ℹ 359 more rows
-```
+    bboudata::bbousurv_a
+    #> # A tibble: 364 × 6
+    #>   PopulationName  Year Month StartTotal MortalitiesCertain MortalitiesUncertain
+    #>   <chr>          <int> <int>      <int>              <int>                <int>
+    #> 1 A               1986     1          0                  0                    0
+    #> 2 A               1986     2          8                  0                    0
+    #> 3 A               1986     3          8                  0                    0
+    #> 4 A               1986     4          8                  0                    0
+    #> 5 A               1986     5          8                  0                    0
+    #> # ℹ 359 more rows
 
 ## bbou Suite
 
 `bboudata` is part of the bbou suite of tools. Other packages in this
 suite include:
 
-- [bboutools](https://github.com/poissonconsulting/bboutools)
-- [bbouretro](https://github.com/poissonconsulting/bbouretro)
-- [bboushiny](https://github.com/poissonconsulting/bboushiny)
-- [bbousims](https://github.com/poissonconsulting/bbousims)
+-   [bboutools](https://github.com/poissonconsulting/bboutools)
+-   [bbouretro](https://github.com/poissonconsulting/bbouretro)
+-   [bboushiny](https://github.com/poissonconsulting/bboushiny)
+-   [bbousims](https://github.com/poissonconsulting/bbousims)
 
 ## Contribution
 

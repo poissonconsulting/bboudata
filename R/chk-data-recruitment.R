@@ -1,5 +1,8 @@
 # Copyright 2022-2023 Integrated Ecological Research and Poisson Consulting Ltd.
 # Copyright 2024 Province of Alberta
+# Copyright (c) His Majesty the King in Right of Canada as represented by the
+# Minister of the Environment 2025/(c) Sa Majeste le Roi du chef du Canada
+# representee par le ministre de l'Environnement 2025.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -40,10 +43,12 @@
 #' survey/year. Must be a positive integer.}
 #' }
 #'
-#' @param data The data frame check.
-#' @param x_name Name of data frame.
-#'
-#' @return An invisible copy of the original data frame.
+#' @param data The data.frame to check.
+#' @param x_name A string of the name of the data.frame.
+#' @param multi_population A flag indicating whether to accept multiple populations.
+#' @param allow_missing A flag indicating whether to accept placeholder rows for unobserved years. When TRUE, rows with all-NA measurement columns (Month, Day, Cows, Bulls, UnknownAdults, Yearlings, Calves) are permitted. These rows signal unobserved years to the model.
+
+#' @return An invisible copy of the original data.frame.
 #' @export
 #'
 #' @examples
@@ -55,7 +60,11 @@
 #' x <- bbourecruit_a
 #' x[1, 4] <- 32L
 #' try(bbd_chk_data_recruitment(x))
-bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data))) {
+bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
+                                     multi_population = FALSE, allow_missing = FALSE) {
+  chk::chk_flag(multi_population)
+  chk::chk_flag(allow_missing)
+
   nms <- c(
     "PopulationName", "Year", "Month", "Day", "Cows",
     "Bulls", "UnknownAdults", "Yearlings", "Calves"
@@ -64,35 +73,62 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data))) {
 
   chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
-  .chk_population(data)
+  if (!multi_population) {
+    .chk_single_population(data)
+  }
 
   chk::chk_whole_numeric(data$Year, x_name = xname(x_name, "Year"))
   chk::chk_gte(data$Year, 0, x_name = xname(x_name, "Year"))
 
-  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
-  chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
-
-  chk::chk_whole_numeric(data$Day, x_name = xname(x_name, "Day"))
-  chk::chk_range(data$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
-
   chk::chk_not_any_na(data$Year, x_name = "Year")
-  chk::chk_not_any_na(data$Month, x_name = "Month")
-  chk::chk_not_any_na(data$Day, x_name = "Day")
 
+  chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
+  chk::chk_whole_numeric(data$Day, x_name = xname(x_name, "Day"))
   chk::chk_whole_numeric(data$Cows, x_name = xname(x_name, "Cows"))
   chk::chk_gte(data$Cows, 0, x_name = xname(x_name, "Cows"))
-
   chk::chk_whole_numeric(data$Bulls, x_name = xname(x_name, "Bulls"))
   chk::chk_gte(data$Bulls, 0, x_name = xname(x_name, "Bulls"))
-
   chk::chk_whole_numeric(data$UnknownAdults, x_name = xname(x_name, "UnknownAdults"))
   chk::chk_gte(data$UnknownAdults, 0, x_name = xname(x_name, "UnknownAdults"))
-
   chk::chk_whole_numeric(data$Yearlings, x_name = xname(x_name, "Yearlings"))
   chk::chk_gte(data$Yearlings, 0, x_name = xname(x_name, "Yearlings"))
-
   chk::chk_whole_numeric(data$Calves, x_name = xname(x_name, "Calves"))
   chk::chk_gte(data$Calves, 0, x_name = xname(x_name, "Calves"))
+
+  if (!allow_missing) {
+    chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+    chk::chk_not_any_na(data$Month, x_name = "Month")
+    chk::chk_range(data$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
+    chk::chk_not_any_na(data$Day, x_name = "Day")
+    chk::chk_not_any_na(data$Cows, x_name = xname(x_name, "Cows"))
+    chk::chk_not_any_na(data$Bulls, x_name = xname(x_name, "Bulls"))
+    chk::chk_not_any_na(data$UnknownAdults, x_name = xname(x_name, "UnknownAdults"))
+    chk::chk_not_any_na(data$Yearlings, x_name = xname(x_name, "Yearlings"))
+    chk::chk_not_any_na(data$Calves, x_name = xname(x_name, "Calves"))
+  } else {
+    .chk_placeholder_all_or_nothing(
+      data,
+      c("Cows", "Bulls", "UnknownAdults", "Yearlings", "Calves")
+    )
+    placeholder <- is.na(data$Cows) &
+      is.na(data$Bulls) &
+      is.na(data$UnknownAdults) &
+      is.na(data$Yearlings) &
+      is.na(data$Calves)
+    if (any(placeholder) && !all(is.na(data$Month[placeholder]))) {
+      chk::abort_chk("Placeholder rows must have `Month` as NA.")
+    }
+    if (any(placeholder) && !all(is.na(data$Day[placeholder]))) {
+      chk::abort_chk("Placeholder rows must have `Day` as NA.")
+    }
+    if (any(!placeholder)) {
+      obs <- data[!placeholder, , drop = FALSE]
+      chk::chk_not_any_na(obs$Month, x_name = "Month")
+      chk::chk_range(obs$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+      chk::chk_not_any_na(obs$Day, x_name = "Day")
+      chk::chk_range(obs$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
+    }
+  }
 
   invisible(data)
 }

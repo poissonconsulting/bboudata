@@ -110,3 +110,61 @@ test_that("error StartTotal doesn't add up", {
     regexp = "Sum of 'MortalitiesCertain' and 'MortalitiesUncertain'must not be greater than 'StartTotal'."
   )
 })
+
+test_that("can accept multiple populations", {
+  x <- bboudata::bbousurv_multi
+  chk::expect_chk_error(
+    bbd_chk_data_survival(x)
+  )
+
+  # multi_population alone fails because dataset includes placeholder rows
+  chk::expect_chk_error(
+    bbd_chk_data_survival(x, multi_population = TRUE)
+  )
+
+  # both flags needed for multi-pop dataset with unobserved years
+  expect_equal(
+    bbd_chk_data_survival(x, multi_population = TRUE, allow_missing = TRUE), x
+  )
+
+  # multi_population alone works when placeholder rows are removed
+  x_obs <- x[!is.na(x$Month), ]
+  expect_equal(bbd_chk_data_survival(x_obs, multi_population = TRUE), x_obs)
+})
+
+test_that("partial NA measurement columns error with allow_missing", {
+  # single column NA on one row
+  x <- bboudata::bbousurv_a
+  x$StartTotal[1] <- NA_integer_
+  chk::expect_chk_error(
+    bbd_chk_data_survival(x, allow_missing = TRUE),
+    "Placeholder rows must have all measurement columns"
+  )
+
+  # two of three columns NA on one row
+  x <- bboudata::bbousurv_a
+  x$StartTotal[1] <- NA_integer_
+  x$MortalitiesCertain[1] <- NA_integer_
+  chk::expect_chk_error(
+    bbd_chk_data_survival(x, allow_missing = TRUE),
+    "Placeholder rows must have all measurement columns"
+  )
+})
+
+test_that("proper placeholder rows pass with allow_missing", {
+  x <- bboudata::bbousurv_a
+  # add a proper placeholder row: all measurement columns NA
+  placeholder <- x[1, ]
+  placeholder$Year <- 2099L
+  placeholder$Month <- NA_integer_
+  placeholder$StartTotal <- NA_integer_
+  placeholder$MortalitiesCertain <- NA_integer_
+  placeholder$MortalitiesUncertain <- NA_integer_
+  x2 <- rbind(x, placeholder)
+
+  chk::expect_chk_error(
+    bbd_chk_data_survival(x2)
+  )
+
+  expect_equal(bbd_chk_data_survival(x2, allow_missing = TRUE), x2)
+})
