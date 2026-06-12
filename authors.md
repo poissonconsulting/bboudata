@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Troy Hegel**. Author.
+- **Troy Hegel**. Author. [](https://orcid.org/0000-0001-5363-7716)
 
 - **Dave Hervieux**. Author.
 
