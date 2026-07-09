@@ -60,18 +60,32 @@
 #' x <- bbourecruit_a
 #' x[1, 4] <- 32L
 #' try(bbd_chk_data_recruitment(x))
-bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
-                                     multi_population = FALSE, allow_missing = FALSE) {
+bbd_chk_data_recruitment <- function(
+  data,
+  x_name = deparse(substitute(data)),
+  multi_population = FALSE,
+  allow_missing = FALSE
+) {
   chk::chk_flag(multi_population)
   chk::chk_flag(allow_missing)
 
   nms <- c(
-    "PopulationName", "Year", "Month", "Day", "Cows",
-    "Bulls", "UnknownAdults", "Yearlings", "Calves"
+    "PopulationName",
+    "Year",
+    "Month",
+    "Day",
+    "Cows",
+    "Bulls",
+    "UnknownAdults",
+    "Yearlings",
+    "Calves"
   )
   chk::chk_superset(names(data), nms, x_name = x_name)
 
-  chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
+  chk::chk_character_or_factor(
+    data$PopulationName,
+    x_name = xname(x_name, "PopulationName")
+  )
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
   if (!multi_population) {
     .chk_single_population(data)
@@ -88,7 +102,10 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
   chk::chk_gte(data$Cows, 0, x_name = xname(x_name, "Cows"))
   chk::chk_whole_numeric(data$Bulls, x_name = xname(x_name, "Bulls"))
   chk::chk_gte(data$Bulls, 0, x_name = xname(x_name, "Bulls"))
-  chk::chk_whole_numeric(data$UnknownAdults, x_name = xname(x_name, "UnknownAdults"))
+  chk::chk_whole_numeric(
+    data$UnknownAdults,
+    x_name = xname(x_name, "UnknownAdults")
+  )
   chk::chk_gte(data$UnknownAdults, 0, x_name = xname(x_name, "UnknownAdults"))
   chk::chk_whole_numeric(data$Yearlings, x_name = xname(x_name, "Yearlings"))
   chk::chk_gte(data$Yearlings, 0, x_name = xname(x_name, "Yearlings"))
@@ -96,13 +113,20 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
   chk::chk_gte(data$Calves, 0, x_name = xname(x_name, "Calves"))
 
   if (!allow_missing) {
-    chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+    chk::chk_range(
+      data$Month,
+      range = c(1, 12),
+      x_name = xname(x_name, "Month")
+    )
     chk::chk_not_any_na(data$Month, x_name = "Month")
     chk::chk_range(data$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
     chk::chk_not_any_na(data$Day, x_name = "Day")
     chk::chk_not_any_na(data$Cows, x_name = xname(x_name, "Cows"))
     chk::chk_not_any_na(data$Bulls, x_name = xname(x_name, "Bulls"))
-    chk::chk_not_any_na(data$UnknownAdults, x_name = xname(x_name, "UnknownAdults"))
+    chk::chk_not_any_na(
+      data$UnknownAdults,
+      x_name = xname(x_name, "UnknownAdults")
+    )
     chk::chk_not_any_na(data$Yearlings, x_name = xname(x_name, "Yearlings"))
     chk::chk_not_any_na(data$Calves, x_name = xname(x_name, "Calves"))
   } else {
@@ -124,7 +148,11 @@ bbd_chk_data_recruitment <- function(data, x_name = deparse(substitute(data)),
     if (any(!placeholder)) {
       obs <- data[!placeholder, , drop = FALSE]
       chk::chk_not_any_na(obs$Month, x_name = "Month")
-      chk::chk_range(obs$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+      chk::chk_range(
+        obs$Month,
+        range = c(1, 12),
+        x_name = xname(x_name, "Month")
+      )
       chk::chk_not_any_na(obs$Day, x_name = "Day")
       chk::chk_range(obs$Day, range = c(1, 31), x_name = xname(x_name, "Day"))
     }

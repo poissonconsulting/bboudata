@@ -24,7 +24,11 @@ test_that("bbousurv snapshots", {
 test_that("column names of bbousurv_a are correct", {
   expect_identical(
     c(
-      "PopulationName", "Year", "Month", "StartTotal", "MortalitiesCertain",
+      "PopulationName",
+      "Year",
+      "Month",
+      "StartTotal",
+      "MortalitiesCertain",
       "MortalitiesUncertain"
     ),
     colnames(bbousurv_a)
@@ -34,7 +38,11 @@ test_that("column names of bbousurv_a are correct", {
 test_that("column names of bbousurv_b are correct", {
   expect_identical(
     c(
-      "PopulationName", "Year", "Month", "StartTotal", "MortalitiesCertain",
+      "PopulationName",
+      "Year",
+      "Month",
+      "StartTotal",
+      "MortalitiesCertain",
       "MortalitiesUncertain"
     ),
     colnames(bbousurv_b)
@@ -44,7 +52,11 @@ test_that("column names of bbousurv_b are correct", {
 test_that("column names of bbousurv_c are correct", {
   expect_identical(
     c(
-      "PopulationName", "Year", "Month", "StartTotal", "MortalitiesCertain",
+      "PopulationName",
+      "Year",
+      "Month",
+      "StartTotal",
+      "MortalitiesCertain",
       "MortalitiesUncertain"
     ),
     colnames(bbousurv_c)

@@ -24,8 +24,15 @@ test_that("bbousurv snapshots", {
 test_that("column names of bbourecruit_a are correct", {
   expect_identical(
     c(
-      "PopulationName", "Year", "Month", "Day", "Cows", "Bulls",
-      "UnknownAdults", "Yearlings", "Calves"
+      "PopulationName",
+      "Year",
+      "Month",
+      "Day",
+      "Cows",
+      "Bulls",
+      "UnknownAdults",
+      "Yearlings",
+      "Calves"
     ),
     colnames(bbourecruit_a)
   )
@@ -34,8 +41,15 @@ test_that("column names of bbourecruit_a are correct", {
 test_that("column names of bbourecruit_b are correct", {
   expect_identical(
     c(
-      "PopulationName", "Year", "Month", "Day", "Cows", "Bulls",
-      "UnknownAdults", "Yearlings", "Calves"
+      "PopulationName",
+      "Year",
+      "Month",
+      "Day",
+      "Cows",
+      "Bulls",
+      "UnknownAdults",
+      "Yearlings",
+      "Calves"
     ),
     colnames(bbourecruit_b)
   )
@@ -44,8 +58,15 @@ test_that("column names of bbourecruit_b are correct", {
 test_that("column names of bbourecruit_c are correct", {
   expect_identical(
     c(
-      "PopulationName", "Year", "Month", "Day", "Cows", "Bulls",
-      "UnknownAdults", "Yearlings", "Calves"
+      "PopulationName",
+      "Year",
+      "Month",
+      "Day",
+      "Cows",
+      "Bulls",
+      "UnknownAdults",
+      "Yearlings",
+      "Calves"
     ),
     colnames(bbourecruit_c)
   )
@@ -132,7 +153,11 @@ test_that("dates are all valid dates", {
       !is.na(
         as.Date(
           paste0(
-            bbourecruit_a$Year, "-", bbourecruit_a$Month, "-", bbourecruit_a$Day
+            bbourecruit_a$Year,
+            "-",
+            bbourecruit_a$Month,
+            "-",
+            bbourecruit_a$Day
           ),
           "%Y-%m-%d"
         )
@@ -144,7 +169,11 @@ test_that("dates are all valid dates", {
       !is.na(
         as.Date(
           paste0(
-            bbourecruit_b$Year, "-", bbourecruit_b$Month, "-", bbourecruit_b$Day
+            bbourecruit_b$Year,
+            "-",
+            bbourecruit_b$Month,
+            "-",
+            bbourecruit_b$Day
           ),
           "%Y-%m-%d"
         )
@@ -156,7 +185,11 @@ test_that("dates are all valid dates", {
       !is.na(
         as.Date(
           paste0(
-            bbourecruit_c$Year, "-", bbourecruit_c$Month, "-", bbourecruit_c$Day
+            bbourecruit_c$Year,
+            "-",
+            bbourecruit_c$Month,
+            "-",
+            bbourecruit_c$Day
           ),
           "%Y-%m-%d"
         )

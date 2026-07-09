@@ -53,18 +53,29 @@
 #' x <- bbousurv_c
 #' x[1, 3] <- 14L
 #' try(bbd_chk_data_survival(x))
-bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
-                                  multi_population = FALSE, allow_missing = FALSE) {
+bbd_chk_data_survival <- function(
+  data,
+  x_name = deparse(substitute(data)),
+  multi_population = FALSE,
+  allow_missing = FALSE
+) {
   chk::chk_flag(multi_population)
   chk::chk_flag(allow_missing)
 
   nms <- c(
-    "PopulationName", "Year", "Month", "StartTotal",
-    "MortalitiesCertain", "MortalitiesUncertain"
+    "PopulationName",
+    "Year",
+    "Month",
+    "StartTotal",
+    "MortalitiesCertain",
+    "MortalitiesUncertain"
   )
   chk::chk_superset(names(data), nms, x_name = x_name)
 
-  chk::chk_character_or_factor(data$PopulationName, x_name = xname(x_name, "PopulationName"))
+  chk::chk_character_or_factor(
+    data$PopulationName,
+    x_name = xname(x_name, "PopulationName")
+  )
   chk::chk_not_any_na(data$PopulationName, x_name = "PopulationName")
   if (!multi_population) {
     .chk_single_population(data)
@@ -78,19 +89,44 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
   chk::chk_whole_numeric(data$Month, x_name = xname(x_name, "Month"))
   chk::chk_whole_numeric(data$StartTotal, x_name = xname(x_name, "StartTotal"))
   chk::chk_gte(data$StartTotal, 0, x_name = xname(x_name, "StartTotal"))
-  chk::chk_whole_numeric(data$MortalitiesCertain, x_name = xname(x_name, "MortalitiesCertain"))
-  chk::chk_gte(data$MortalitiesCertain, 0, x_name = xname(x_name, "MortalitiesCertain"))
-  chk::chk_whole_numeric(data$MortalitiesUncertain, x_name = xname(x_name, "MortalitiesUncertain"))
-  chk::chk_gte(data$MortalitiesUncertain, 0, x_name = xname(x_name, "MortalitiesUncertain"))
+  chk::chk_whole_numeric(
+    data$MortalitiesCertain,
+    x_name = xname(x_name, "MortalitiesCertain")
+  )
+  chk::chk_gte(
+    data$MortalitiesCertain,
+    0,
+    x_name = xname(x_name, "MortalitiesCertain")
+  )
+  chk::chk_whole_numeric(
+    data$MortalitiesUncertain,
+    x_name = xname(x_name, "MortalitiesUncertain")
+  )
+  chk::chk_gte(
+    data$MortalitiesUncertain,
+    0,
+    x_name = xname(x_name, "MortalitiesUncertain")
+  )
 
   if (!allow_missing) {
-    chk::chk_range(data$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+    chk::chk_range(
+      data$Month,
+      range = c(1, 12),
+      x_name = xname(x_name, "Month")
+    )
     chk::chk_not_any_na(data$Month, x_name = "Month")
     chk::chk_not_any_na(data$StartTotal, x_name = "StartTotal")
     chk::chk_not_any_na(data$MortalitiesCertain, x_name = "MortalitiesCertain")
-    chk::chk_not_any_na(data$MortalitiesUncertain, x_name = "MortalitiesUncertain")
+    chk::chk_not_any_na(
+      data$MortalitiesUncertain,
+      x_name = "MortalitiesUncertain"
+    )
     chk::check_key(data, c("PopulationName", "Year", "Month"))
-    .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal")
+    .chk_sum_less(
+      data,
+      c("MortalitiesCertain", "MortalitiesUncertain"),
+      "StartTotal"
+    )
   } else {
     .chk_placeholder_all_or_nothing(
       data,
@@ -105,10 +141,19 @@ bbd_chk_data_survival <- function(data, x_name = deparse(substitute(data)),
     if (any(!placeholder)) {
       obs <- data[!placeholder, , drop = FALSE]
       chk::chk_not_any_na(obs$Month, x_name = "Month")
-      chk::chk_range(obs$Month, range = c(1, 12), x_name = xname(x_name, "Month"))
+      chk::chk_range(
+        obs$Month,
+        range = c(1, 12),
+        x_name = xname(x_name, "Month")
+      )
       chk::check_key(obs, c("PopulationName", "Year", "Month"))
     }
-    .chk_sum_less(data, c("MortalitiesCertain", "MortalitiesUncertain"), "StartTotal", na.rm = TRUE)
+    .chk_sum_less(
+      data,
+      c("MortalitiesCertain", "MortalitiesUncertain"),
+      "StartTotal",
+      na.rm = TRUE
+    )
   }
 
   invisible(data)
