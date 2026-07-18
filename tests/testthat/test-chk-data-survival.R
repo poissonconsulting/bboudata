@@ -124,7 +124,8 @@ test_that("can accept multiple populations", {
 
   # both flags needed for multi-pop dataset with unobserved years
   expect_equal(
-    bbd_chk_data_survival(x, multi_population = TRUE, allow_missing = TRUE), x
+    bbd_chk_data_survival(x, multi_population = TRUE, allow_missing = TRUE),
+    x
   )
 
   # multi_population alone works when placeholder rows are removed
